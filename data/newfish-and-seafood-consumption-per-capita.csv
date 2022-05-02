@@ -56,59 +56,59 @@ Afghanistan,AFG,2014,0.19,
 Afghanistan,AFG,2015,0.21,
 Afghanistan,AFG,2016,0.23,
 Afghanistan,AFG,2017,0.25,
-Africa,,1961,4.57,
-Africa,,1962,4.63,
-Africa,,1963,4.96,
-Africa,,1964,5.37,
-Africa,,1965,5.34,
-Africa,,1966,5.61,
-Africa,,1967,5.71,
-Africa,,1968,5.36,
-Africa,,1969,5.5,
-Africa,,1970,6.11,
-Africa,,1971,6.63,
-Africa,,1972,6.88,
-Africa,,1973,6.9,
-Africa,,1974,7.02,
-Africa,,1975,7.42,
-Africa,,1976,7.82,
-Africa,,1977,8,
-Africa,,1978,8.28,
-Africa,,1979,8.24,
-Africa,,1980,8.11,
-Africa,,1981,8.88,
-Africa,,1982,9.03,
-Africa,,1983,8.2,
-Africa,,1984,7.85,
-Africa,,1985,7.49,
-Africa,,1986,7.76,
-Africa,,1987,8.38,
-Africa,,1988,8.39,
-Africa,,1989,8.48,
-Africa,,1990,8.83,
-Africa,,1991,7.75,
-Africa,,1992,7.68,
-Africa,,1993,7.46,
-Africa,,1994,6.92,
-Africa,,1995,7.33,
-Africa,,1996,7.51,
-Africa,,1997,7.75,
-Africa,,1998,7.78,
-Africa,,1999,8.04,
-Africa,,2000,7.87,
-Africa,,2001,8.34,
-Africa,,2002,7.95,
-Africa,,2003,8.31,
-Africa,,2004,8.96,
-Africa,,2005,9.12,
-Africa,,2006,9.84,
-Africa,,2007,10.37,
-Africa,,2008,10.13,
-Africa,,2009,9.93,
-Africa,,2010,10.44,
-Africa,,2011,11.02,
-Africa,,2012,10.95,
-Africa,,2013,10.77,
+Africa,,1961,4.57,1526057
+Africa,,1962,4.63,1551908
+Africa,,1963,4.96,1579375
+Africa,,1964,5.37,1608618
+Africa,,1965,5.34,1639706
+Africa,,1966,5.61,1673019
+Africa,,1967,5.71,1708306
+Africa,,1968,5.36,1744198
+Africa,,1969,5.5,1778870
+Africa,,1970,6.11,1811157
+Africa,,1971,6.63,1840517
+Africa,,1972,6.88,1867786
+Africa,,1973,6.9,1894850
+Africa,,1974,7.02,1924386
+Africa,,1975,7.42,1958367
+Africa,,1976,7.82,1997017
+Africa,,1977,8,2039914
+Africa,,1978,8.28,2087662
+Africa,,1979,8.24,2140778
+Africa,,1980,8.11,2199359
+Africa,,1981,8.88,2264441
+Africa,,1982,9.03,2335339
+Africa,,1983,8.2,2408322
+Africa,,1984,7.85,2478382
+Africa,,1985,7.49,2542170
+Africa,,1986,7.76,2597765
+Africa,,1987,8.38,2646836
+Africa,,1988,8.39,2693974
+Africa,,1989,8.48,2745735
+Africa,,1990,8.83,2806740
+Africa,,1991,7.75,2878507
+Africa,,1992,7.68,2959236
+Africa,,1993,7.46,3046148
+Africa,,1994,6.92,3135017
+Africa,,1995,7.33,3222662
+Africa,,1996,7.51,3308235
+Africa,,1997,7.75,3392432
+Africa,,1998,7.78,3475485
+Africa,,1999,8.04,3558019
+Africa,,2000,7.87,3640421
+Africa,,2001,8.34,3722016
+Africa,,2002,7.95,3802129
+Africa,,2003,8.31,3881185
+Africa,,2004,8.96,3959883
+Africa,,2005,9.12,4038380
+Africa,,2006,9.84,4118075
+Africa,,2007,10.37,4198004
+Africa,,2008,10.13,4273368
+Africa,,2009,9.93,4337623
+Africa,,2010,10.44,4386765
+Africa,,2011,11.02,4418639
+Africa,,2012,10.95,4436411
+Africa,,2013,10.77,4447945
 Albania,ALB,1961,1.92,
 Albania,ALB,1962,1.63,
 Albania,ALB,1963,1.69,
@@ -2741,66 +2741,66 @@ Dominican Republic,DOM,2014,8.99,
 Dominican Republic,DOM,2015,9.08,
 Dominican Republic,DOM,2016,9.66,
 Dominican Republic,DOM,2017,9.56,
-Eastern Africa,,1961,3.27,
-Eastern Africa,,1962,3.51,
-Eastern Africa,,1963,3.85,
-Eastern Africa,,1964,4.18,
-Eastern Africa,,1965,4.48,
-Eastern Africa,,1966,4.62,
-Eastern Africa,,1967,4.99,
-Eastern Africa,,1968,5.42,
-Eastern Africa,,1969,5.4,
-Eastern Africa,,1970,5.7,
-Eastern Africa,,1971,5.66,
-Eastern Africa,,1972,5.7,
-Eastern Africa,,1973,5.6,
-Eastern Africa,,1974,5.48,
-Eastern Africa,,1975,5.78,
-Eastern Africa,,1976,5.66,
-Eastern Africa,,1977,6.32,
-Eastern Africa,,1978,5.74,
-Eastern Africa,,1979,5.04,
-Eastern Africa,,1980,5.22,
-Eastern Africa,,1981,4.99,
-Eastern Africa,,1982,5.2,
-Eastern Africa,,1983,5.33,
-Eastern Africa,,1984,5.68,
-Eastern Africa,,1985,5.39,
-Eastern Africa,,1986,5.75,
-Eastern Africa,,1987,5.99,
-Eastern Africa,,1988,6.18,
-Eastern Africa,,1989,5.85,
-Eastern Africa,,1990,6.35,
-Eastern Africa,,1991,5.34,
-Eastern Africa,,1992,5.37,
-Eastern Africa,,1993,5.19,
-Eastern Africa,,1994,4.8,
-Eastern Africa,,1995,4.81,
-Eastern Africa,,1996,4.39,
-Eastern Africa,,1997,4.66,
-Eastern Africa,,1998,4.3,
-Eastern Africa,,1999,4.3,
-Eastern Africa,,2000,4.22,
-Eastern Africa,,2001,3.75,
-Eastern Africa,,2002,3.49,
-Eastern Africa,,2003,3.73,
-Eastern Africa,,2004,4.11,
-Eastern Africa,,2005,4.39,
-Eastern Africa,,2006,4.3,
-Eastern Africa,,2007,4.72,
-Eastern Africa,,2008,4.26,
-Eastern Africa,,2009,4.63,
-Eastern Africa,,2010,4.81,
-Eastern Africa,,2011,5.01,
-Eastern Africa,,2012,4.93,
-Eastern Africa,,2013,4.8,
-Eastern Asia,,1961,10.73,
-Eastern Asia,,1962,10.84,
-Eastern Asia,,1963,10.93,
-Eastern Asia,,1964,10.26,
-Eastern Asia,,1965,10.93,
-Eastern Asia,,1966,10.86,
-Eastern Asia,,1967,11.14,
+Eastern Africa,,1961,3.27,1526057
+Eastern Africa,,1962,3.51,1551908
+Eastern Africa,,1963,3.85,1579375
+Eastern Africa,,1964,4.18,1608618
+Eastern Africa,,1965,4.48,1639706
+Eastern Africa,,1966,4.62,1673019
+Eastern Africa,,1967,4.99,1708306
+Eastern Africa,,1968,5.42,1744198
+Eastern Africa,,1969,5.4,1778870
+Eastern Africa,,1970,5.7,1811157
+Eastern Africa,,1971,5.66,1840517
+Eastern Africa,,1972,5.7,1867786
+Eastern Africa,,1973,5.6,1894850
+Eastern Africa,,1974,5.48,1924386
+Eastern Africa,,1975,5.78,1958367
+Eastern Africa,,1976,5.66,1997017
+Eastern Africa,,1977,6.32,2039914
+Eastern Africa,,1978,5.74,2087662
+Eastern Africa,,1979,5.04,2140778
+Eastern Africa,,1980,5.22,2199359
+Eastern Africa,,1981,4.99,2264441
+Eastern Africa,,1982,5.2,2335339
+Eastern Africa,,1983,5.33,2408322
+Eastern Africa,,1984,5.68,2478382
+Eastern Africa,,1985,5.39,2542170
+Eastern Africa,,1986,5.75,2597765
+Eastern Africa,,1987,5.99,2646836
+Eastern Africa,,1988,6.18,2693974
+Eastern Africa,,1989,5.85,2745735
+Eastern Africa,,1990,6.35,2806740
+Eastern Africa,,1991,5.34,2878507
+Eastern Africa,,1992,5.37,2959236
+Eastern Africa,,1993,5.19,3046148
+Eastern Africa,,1994,4.8,3135017
+Eastern Africa,,1995,4.81,3222662
+Eastern Africa,,1996,4.39,3308235
+Eastern Africa,,1997,4.66,3392432
+Eastern Africa,,1998,4.3,3475485
+Eastern Africa,,1999,4.3,3558019
+Eastern Africa,,2000,4.22,3640421
+Eastern Africa,,2001,3.75,3722016
+Eastern Africa,,2002,3.49,3802129
+Eastern Africa,,2003,3.73,3881185
+Eastern Africa,,2004,4.11,3959883
+Eastern Africa,,2005,4.39,4038380
+Eastern Africa,,2006,4.3,4118075
+Eastern Africa,,2007,4.72,4198004
+Eastern Africa,,2008,4.26,4273368
+Eastern Africa,,2009,4.63,4337623
+Eastern Africa,,2010,4.81,4386765
+Eastern Africa,,2011,5.01,4418639
+Eastern Africa,,2012,4.93,4436411
+Eastern Africa,,2013,4.8,4447945
+Eastern Asia,,1961,10.73,4464171
+Eastern Asia,,1962,10.84,4493171
+Eastern Asia,,1963,10.93,4537683
+Eastern Asia,,1964,10.26,4596023
+Eastern Asia,,1965,10.93,4666375
+Eastern Asia,,1966,10.86,4745179
+Eastern Asia,,1967,11.14,4829764
 Eastern Asia,,1968,11.52,
 Eastern Asia,,1969,11.22,
 Eastern Asia,,1970,11.16,
@@ -7525,63 +7525,63 @@ Northern Europe,,2010,24.73,
 Northern Europe,,2011,25.14,
 Northern Europe,,2012,24.87,
 Northern Europe,,2013,25.34,
-Norway,NOR,1961,40.66,
-Norway,NOR,1962,39.86,
-Norway,NOR,1963,42,
-Norway,NOR,1964,40.55,
-Norway,NOR,1965,43.17,
-Norway,NOR,1966,41.53,
-Norway,NOR,1967,36.02,
-Norway,NOR,1968,41.06,
-Norway,NOR,1969,42,
-Norway,NOR,1970,43.29,
-Norway,NOR,1971,35.66,
-Norway,NOR,1972,43.59,
-Norway,NOR,1973,43.94,
-Norway,NOR,1974,43.33,
-Norway,NOR,1975,42.56,
-Norway,NOR,1976,39.21,
-Norway,NOR,1977,39.53,
-Norway,NOR,1978,40.72,
-Norway,NOR,1979,41.72,
-Norway,NOR,1980,43.49,
-Norway,NOR,1981,42.52,
-Norway,NOR,1982,43.66,
-Norway,NOR,1983,42.72,
-Norway,NOR,1984,41.84,
-Norway,NOR,1985,43.18,
-Norway,NOR,1986,42.53,
-Norway,NOR,1987,44.35,
-Norway,NOR,1988,42.35,
-Norway,NOR,1989,43.49,
-Norway,NOR,1990,44.71,
-Norway,NOR,1991,44.52,
-Norway,NOR,1992,44.33,
-Norway,NOR,1993,44.58,
-Norway,NOR,1994,50.02,
-Norway,NOR,1995,50.53,
-Norway,NOR,1996,53.03,
-Norway,NOR,1997,52.3,
-Norway,NOR,1998,52.91,
-Norway,NOR,1999,48.63,
-Norway,NOR,2000,49.83,
-Norway,NOR,2001,49.39,
-Norway,NOR,2002,50.12,
-Norway,NOR,2003,47.6,
-Norway,NOR,2004,51.84,
-Norway,NOR,2005,52.39,
-Norway,NOR,2006,51.33,
-Norway,NOR,2007,52.22,
-Norway,NOR,2008,53.38,
-Norway,NOR,2009,53.17,
-Norway,NOR,2010,54.11,
-Norway,NOR,2011,53.27,
-Norway,NOR,2012,52.94,
-Norway,NOR,2013,52.08,
-Norway,NOR,2014,50.84,
-Norway,NOR,2015,50.03,
-Norway,NOR,2016,51.45,
-Norway,NOR,2017,51.35,
+Norway,NOR,1961,40.66,146774.468
+Norway,NOR,1962,39.86,145047.2715
+Norway,NOR,1963,42,153994.554
+Norway,NOR,1964,40.55,149805.4465
+Norway,NOR,1965,43.17,160729.1626
+Norway,NOR,1966,41.53,155862.5884
+Norway,NOR,1967,36.02,136319.0948
+Norway,NOR,1968,41.06,156704.9152
+Norway,NOR,1969,42,161603.694
+Norway,NOR,1970,43.29,167781.7803
+Norway,NOR,1971,35.66,139182.3707
+Norway,NOR,1972,43.59,171439.6444
+Norway,NOR,1973,43.94,174029.2913
+Norway,NOR,1974,43.33,172681.2291
+Norway,NOR,1975,42.56,170551.2413
+Norway,NOR,1976,39.21,157865.4199
+Norway,NOR,1977,39.53,159827.8937
+Norway,NOR,1978,40.72,165269.0831
+Norway,NOR,1979,41.72,169905.4092
+Norway,NOR,1980,43.49,177683.6138
+Norway,NOR,1981,42.52,174319.329
+Norway,NOR,1982,43.66,179651.6004
+Norway,NOR,1983,42.72,176366.615
+Norway,NOR,1984,41.84,173221.7422
+Norway,NOR,1985,43.18,179305.6409
+Norway,NOR,1986,42.53,177237.5656
+Norway,NOR,1987,44.35,185689.2368
+Norway,NOR,1988,42.35,178271.8168
+Norway,NOR,1989,43.49,183827.9245
+Norway,NOR,1990,44.71,189636.2578
+Norway,NOR,1991,44.52,189732.3086
+Norway,NOR,1992,44.33,190016.1563
+Norway,NOR,1993,44.58,192228.5588
+Norway,NOR,1994,50.02,216917.3823
+Norway,NOR,1995,50.53,220269.5675
+Norway,NOR,1996,53.03,232342.2481
+Norway,NOR,1997,52.3,230389.7111
+Norway,NOR,1998,52.91,234468.7602
+Norway,NOR,1999,48.63,216982.8292
+Norway,NOR,2000,49.83,223784.8856
+Norway,NOR,2001,49.39,222934.1619
+Norway,NOR,2002,50.12,227452.5291
+Norway,NOR,2003,47.6,217287.098
+Norway,NOR,2004,51.84,238044.6144
+Norway,NOR,2005,52.39,242214.2155
+Norway,NOR,2006,51.33,239232.5504
+Norway,NOR,2007,52.22,245911.9697
+Norway,NOR,2008,53.38,254527.1566
+Norway,NOR,2009,53.17,256743.3614
+Norway,NOR,2010,54.11,264557.4257
+Norway,NOR,2011,53.27,263850.9978
+Norway,NOR,2012,52.94,265683.2546
+Norway,NOR,2013,52.08,264546.7658
+Norway,NOR,2014,50.84,261176.8749
+Norway,NOR,2015,50.03,259586.0082
+Norway,NOR,2016,51.45,269316.0026
+Norway,NOR,2017,51.35,270972.3068
 Oceania,,1961,14.91,
 Oceania,,1962,14.03,
 Oceania,,1963,11.77,
@@ -8898,63 +8898,63 @@ Solomon Islands,SLB,2014,37.08,
 Solomon Islands,SLB,2015,35.11,
 Solomon Islands,SLB,2016,33.14,
 Solomon Islands,SLB,2017,30.14,
-South Africa,ZAF,1961,5.48,
-South Africa,ZAF,1962,5.46,
-South Africa,ZAF,1963,5.67,
-South Africa,ZAF,1964,5.99,
-South Africa,ZAF,1965,7.42,
-South Africa,ZAF,1966,7.9,
-South Africa,ZAF,1967,8.91,
-South Africa,ZAF,1968,7.16,
-South Africa,ZAF,1969,6.71,
-South Africa,ZAF,1970,8.57,
-South Africa,ZAF,1971,7.9,
-South Africa,ZAF,1972,7.98,
-South Africa,ZAF,1973,10.39,
-South Africa,ZAF,1974,10.29,
-South Africa,ZAF,1975,11.84,
-South Africa,ZAF,1976,10.1,
-South Africa,ZAF,1977,9.77,
-South Africa,ZAF,1978,9.61,
-South Africa,ZAF,1979,9.22,
-South Africa,ZAF,1980,8.68,
-South Africa,ZAF,1981,10.43,
-South Africa,ZAF,1982,8.36,
-South Africa,ZAF,1983,8.55,
-South Africa,ZAF,1984,9.04,
-South Africa,ZAF,1985,8.6,
-South Africa,ZAF,1986,8,
-South Africa,ZAF,1987,9.67,
-South Africa,ZAF,1988,10.24,
-South Africa,ZAF,1989,9.22,
-South Africa,ZAF,1990,9.98,
-South Africa,ZAF,1991,7.95,
-South Africa,ZAF,1992,9.18,
-South Africa,ZAF,1993,8.96,
-South Africa,ZAF,1994,6.63,
-South Africa,ZAF,1995,8.59,
-South Africa,ZAF,1996,6.62,
-South Africa,ZAF,1997,8.17,
-South Africa,ZAF,1998,6.62,
-South Africa,ZAF,1999,6.53,
-South Africa,ZAF,2000,6.14,
-South Africa,ZAF,2001,6.97,
-South Africa,ZAF,2002,6.99,
-South Africa,ZAF,2003,7.09,
-South Africa,ZAF,2004,9.88,
-South Africa,ZAF,2005,8.52,
-South Africa,ZAF,2006,7.88,
-South Africa,ZAF,2007,7.79,
-South Africa,ZAF,2008,6.94,
-South Africa,ZAF,2009,5.13,
-South Africa,ZAF,2010,5.86,
-South Africa,ZAF,2011,5.67,
-South Africa,ZAF,2012,7.47,
-South Africa,ZAF,2013,6.25,
-South Africa,ZAF,2014,7.2,
-South Africa,ZAF,2015,6.55,
-South Africa,ZAF,2016,6.06,
-South Africa,ZAF,2017,5.97,
+South Africa,ZAF,1961,5.48,96034.44084
+South Africa,ZAF,1962,5.46,98092.90218
+South Africa,ZAF,1963,5.67,104459.3002
+South Africa,ZAF,1964,5.99,113188.855
+South Africa,ZAF,1965,7.42,143835.498
+South Africa,ZAF,1966,7.9,157117.2461
+South Africa,ZAF,1967,8.91,181825.1493
+South Africa,ZAF,1968,7.16,149945.7725
+South Africa,ZAF,1969,6.71,144238.6633
+South Africa,ZAF,1970,8.57,189138.0403
+South Africa,ZAF,1971,7.9,179055.5935
+South Africa,ZAF,1972,7.98,185786.5057
+South Africa,ZAF,1973,10.39,248457.0051
+South Africa,ZAF,1974,10.29,252645.6366
+South Africa,ZAF,1975,11.84,298310.9786
+South Africa,ZAF,1976,10.1,260952.589
+South Africa,ZAF,1977,9.77,258718.5396
+South Africa,ZAF,1978,9.61,260805.4633
+South Africa,ZAF,1979,9.22,256567.9365
+South Africa,ZAF,1980,8.68,247872.7723
+South Africa,ZAF,1981,10.43,305944.1809
+South Africa,ZAF,1982,8.36,252057.7453
+South Africa,ZAF,1983,8.55,264996.6651
+South Africa,ZAF,1984,9.04,287847.9555
+South Africa,ZAF,1985,8.6,281038.3336
+South Africa,ZAF,1986,8,267967.648
+South Africa,ZAF,1987,9.67,331659.0201
+South Africa,ZAF,1988,10.24,359433.2672
+South Africa,ZAF,1989,9.22,331275.1163
+South Africa,ZAF,1990,9.98,367269.0599
+South Africa,ZAF,1991,7.95,299865.6684
+South Africa,ZAF,1992,9.18,355014.569
+South Africa,ZAF,1993,8.96,355118.4358
+South Africa,ZAF,1994,6.63,268939.7244
+South Africa,ZAF,1995,8.59,355933.187
+South Africa,ZAF,1996,6.62,279635.4663
+South Africa,ZAF,1997,8.17,351207.5155
+South Africa,ZAF,1998,6.62,289176.5546
+South Africa,ZAF,1999,6.53,289530.738
+South Africa,ZAF,2000,6.14,276101.7578
+South Africa,ZAF,2001,6.97,317631.7658
+South Africa,ZAF,2002,6.99,322594.8819
+South Africa,ZAF,2003,7.09,331239.1493
+South Africa,ZAF,2004,9.88,467241.1068
+South Africa,ZAF,2005,8.52,407942.6694
+South Africa,ZAF,2006,7.88,382096.9763
+South Africa,ZAF,2007,7.79,382642.9771
+South Africa,ZAF,2008,6.94,345469.5357
+South Africa,ZAF,2009,5.13,258947.0767
+South Africa,ZAF,2010,5.86,300131.4266
+South Africa,ZAF,2011,5.67,294861.3135
+South Africa,ZAF,2012,7.47,394659.9627
+South Africa,ZAF,2013,6.25,335544.5313
+South Africa,ZAF,2014,7.2,392718.1248
+South Africa,ZAF,2015,6.55,362780.717
+South Africa,ZAF,2016,6.06,340618.3529
+South Africa,ZAF,2017,5.97,340348.2135
 South America,,1961,5.49,
 South America,,1962,6.21,
 South America,,1963,6.12,
