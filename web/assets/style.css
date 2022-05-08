@@ -1,0 +1,142 @@
+/* Animation */
+
+@keyframes fade-left {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-bottom {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fade-left {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-right {
+    0% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Header animation */
+@keyframes fade-up {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.fade-left {
+    animation: fade-left 1s ease-out;
+}
+
+.fade-right {
+    animation: fade-right 1s ease-out;
+}
+
+.fade-up {
+    animation: fade-up 1s ease-out;
+}
+
+.fade-in {
+    animation: fade-in 1s ease-out;
+}
+
+.fade-bottom {
+    animation: fade-bottom 1s ease-out;
+}
+
+
+:root {
+    --text-color-dark: #e4e6eb;
+    --text-secondary-color-dark: #b0b3b8;
+    --background-color-dark: #18191a;
+    --secondary-background-color-dark: #212529;
+    --primary-color-dark: #ffffff;
+    --secondary-color-dark: #212529;
+}
+
+body {
+    font-family: "Alata", sans-serif;
+    background: var(--background-color-dark);
+    margin: 0 5rem 0 5rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.graph-left {
+    margin-left: 3rem;
+}
+
+.graph-right {
+    margin-right: 3rem;
+}
+
+.title {
+    color: var(--text-color-dark);
+    font-size: 7rem;
+}
+
+.text-body {
+    color: var(--text-color-dark);
+    font-size: large;
+}
+
+.text-subtitle {
+    color: var(--text-secondary-color-dark);
+    font-size: 3rem;
+}
+
+.two-column {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    color: var(--text-color-dark);
+}
+
+.text-box {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    word-spacing: 0.2rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
