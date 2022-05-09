@@ -6,7 +6,7 @@ from web.plots.data import get_consumption, group_by_elements, get_population, g
 from web.plots.choropleth_maps import plot_consumption_map, plot_industry_map
 
 app = Dash(__name__)
-
+server = app.server
 year = '2017'
 
 # Data
