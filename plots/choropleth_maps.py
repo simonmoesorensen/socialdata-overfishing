@@ -98,7 +98,7 @@ def plot_consumption_map(df):
                                   "prefix": "Year: ",
                                   "visible": True,
                                   "xanchor": "right",
-                                  'offset': 90
+                                  'offset': 20
                               },
                               "transition": {"duration": 200, "easing": "cubic-in-out"},
                               "pad": {"b": 10, "t": 50},
