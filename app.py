@@ -149,7 +149,7 @@ app.layout = html.Div(children=[
                                                   ])
                                      ]),
                                      dcc.Loading(dcc.Graph(
-                                         id='fish-consumption-industry',
+                                         id='fish-industry-map',
                                          figure=plot_sustainability(df_sustainability)
                                      ))
                                  ])
@@ -185,13 +185,7 @@ app.layout = html.Div(children=[
                 imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
                  Suspendisse sit amet sodales ante, vitae rutrum elit. 
                  Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-                """)]),
-
-
-        dcc.Loading(dcc.Graph(
-            id='fish-industry-map',
-            className='fade-left'
-        ))
+                """)])
     ]),
 ])
 
