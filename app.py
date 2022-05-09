@@ -1,12 +1,14 @@
 from dash import Dash, dcc, html, Output, Input, callback_context
+import sd_material_ui as sd
 
-from assets.components import button_array
 from plots.line_plots import plot_avg_global_consumption, plot_sustainability
 from plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability
 from plots.choropleth_maps import plot_consumption_map, plot_industry_map
 
 app = Dash(__name__)
 server = app.server
+app.title = 'Fishing for sustainability'
+
 year = '2017'
 
 # Data
@@ -65,7 +67,7 @@ def animate_fish_industry_maps(btn1, btn2, btn3, btn4):
 app.layout = html.Div(children=[
     html.Div([
         html.H1(
-            children='Sustainability in fishing habits',
+            children='Fishing for sustainability',
             className='title fade-left'
         ),
         html.H2(
@@ -78,7 +80,7 @@ app.layout = html.Div(children=[
         dcc.Tabs(parent_className='fade-left',
                  children=[
                      dcc.Tab(label='Map',
-                             className='custom-tab',
+                             className='custom-tab fade-in',
                              selected_className='custom-tab--selected',
                              children=[
                                  dcc.Loading(dcc.Graph(
@@ -110,7 +112,41 @@ app.layout = html.Div(children=[
                              children=[
                                  html.Div(className='two-row', children=[
                                      html.Div([
-                                         button_array()
+                                         html.Div(className='button-array',
+                                                  children=[
+                                                      sd.Button('Production',
+                                                                id='btn-production',
+                                                                variant='outlined',
+                                                                n_clicks=0,
+                                                                style={
+                                                                    'background-color': 'cornflowerblue',
+                                                                    'color': 'var(--text-color-dark)'
+                                                                }),
+                                                      sd.Button('Supply',
+                                                                id='btn-supply',
+                                                                variant='outlined',
+                                                                n_clicks=0,
+                                                                style={
+                                                                    'background-color': 'forestgreen',
+                                                                    'color': 'var(--text-color-dark)'
+                                                                }),
+                                                      sd.Button('Import',
+                                                                id='btn-import',
+                                                                variant='outlined',
+                                                                n_clicks=0,
+                                                                style={
+                                                                    'background-color': 'indianred',
+                                                                    'color': 'var(--text-color-dark)'
+                                                                }),
+                                                      sd.Button('Export',
+                                                                id='btn-export',
+                                                                variant='outlined',
+                                                                n_clicks=0,
+                                                                style={
+                                                                    'background-color': 'rebeccapurple',
+                                                                    'color': 'var(--text-color-dark)'
+                                                                }),
+                                                  ])
                                      ]),
                                      dcc.Loading(dcc.Graph(
                                          id='fish-consumption-industry',

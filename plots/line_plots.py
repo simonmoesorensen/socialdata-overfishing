@@ -43,7 +43,7 @@ def plot_avg_global_consumption(df):
             size=13
         ),
         ax=-100,
-        ay=-70,
+        ay=-60,
         arrowhead=2,
         arrowsize=1,
         arrowwidth=2,
