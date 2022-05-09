@@ -28,7 +28,7 @@ industry_dict = {
 
 # Callbacks
 @app.callback(
-    Output('fish-industry-map', 'figure'),
+    Output('fish-tab-industry', 'figure'),
     Input('btn-production', 'n_clicks'),
     Input('btn-import', 'n_clicks'),
     Input('btn-export', 'n_clicks'),
@@ -81,29 +81,29 @@ app.layout = html.Div(children=[
                  dcc.Tabs(parent_className='fade-left',
                           children=[
                               dcc.Tab(label='Map',
-                                      className='custom-tab fade-in',
+                                      className='custom-tab fade-up',
                                       selected_className='custom-tab--selected',
                                       children=[
-                                          dcc.Loading(dcc.Graph(
-                                              id='fish-consumption-map',
+                                          dcc.Graph(
+                                              id='fish-tab-map',
                                               figure=plot_consumption_map(df_consumption)
-                                          ))
-                                      ]),
-                              dcc.Tab(label='Consumption',
-                                      className='custom-tab',
-                                      selected_className='custom-tab--selected',
-                                      children=[
-                                          dcc.Loading(dcc.Graph(
-                                              id='fish-consumption-consumption',
-                                              figure=plot_avg_global_consumption(df_consumption)
-                                          ))
+                                          )
                                       ]),
                               dcc.Tab(label='Trend',
                                       className='custom-tab',
                                       selected_className='custom-tab--selected',
                                       children=[
                                           dcc.Loading(dcc.Graph(
-                                              id='fish-consumption-trend',
+                                              id='fish-tab-trend',
+                                              figure=plot_avg_global_consumption(df_consumption)
+                                          ))
+                                      ]),
+                              dcc.Tab(label='Overfishing',
+                                      className='custom-tab',
+                                      selected_className='custom-tab--selected',
+                                      children=[
+                                          dcc.Loading(dcc.Graph(
+                                              id='fish-tab-overfishing',
                                               figure=plot_sustainability(df_sustainability)
                                           ))
                                       ]),
@@ -113,7 +113,7 @@ app.layout = html.Div(children=[
                                       children=[
                                           html.Div(className='two-row', children=[
                                               dcc.Loading(dcc.Graph(
-                                                  id='fish-industry-map',
+                                                  id='fish-tab-industry',
                                                   figure=plot_sustainability(df_sustainability)
                                               )),
                                               html.Div([
@@ -169,23 +169,25 @@ app.layout = html.Div(children=[
                                  Suspendisse sit amet sodales ante, vitae rutrum elit. 
                                  Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
                                  """),
-                              html.Div(className='countries',
+                              html.Div(className='countries fade-up',
                                        children=[
-                                           html.Button(className='country-button china'),
-                                           html.Button(className='country-button norway')
+                                           html.A(html.Button(className='country-button china'),
+                                                  href='#china'),
+                                           html.A(html.Button('', className='country-button norway'),
+                                                  href='#norway')
                                        ])
                           ]),
              ]),
 
     html.H2('China',
+            id='china',
             className='text-subtitle',
-            style={'marginTop': '4rem'}),
+            style={'marginTop': '16rem'}),
 
     html.Div(className='two-column', children=[
         html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
-                         style={'marginLeft': 0,
-                                'textAlign': 'left'},
+                         style={'marginLeft': 0},
                          children="""
             ## Some nice text
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -203,14 +205,14 @@ app.layout = html.Div(children=[
     ]),
 
     html.H2('Norway',
+            id='norway',
             className='text-subtitle',
-            style={'marginTop': '4rem'}),
+            style={'marginTop': '8rem'}),
 
     html.Div(className='two-column', children=[
         html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
-                         style={'marginLeft': 0,
-                                'textAlign': 'left'},
+                         style={'marginLeft': 0},
                          children="""
             ## Some nice text
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
