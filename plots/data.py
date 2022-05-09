@@ -15,7 +15,7 @@ def group_by_elements(df, df_population, elements, year):
 
 def get_population_maps():
     """ Population from 2017 """
-    country_code_map = pd.read_csv('../data/country_code_map.csv')[['Country', 'Alpha-3 code']]
+    country_code_map = pd.read_csv('data/country_code_map.csv')[['Country', 'Alpha-3 code']]
     country_code_map['Alpha-3 code'] = country_code_map['Alpha-3 code'].apply(lambda x: x.split('"')[1])
     country_code_map = country_code_map.set_index('Country').to_dict(orient='index')
     country_code_to_country = {value['Alpha-3 code']: key for key, value in country_code_map.items()}
@@ -35,11 +35,11 @@ def add_population(df):
 
 
 def get_population():
-    return pd.read_csv('../data/population_total.csv')
+    return pd.read_csv('data/population_total.csv')
 
 
 def get_industry_data():
-    df = pd.read_csv('../data/FAOSTAT_country_supply_production_import_export.csv')
+    df = pd.read_csv('data/FAOSTAT_country_supply_production_import_export.csv')
     df.loc[df['Area'] == "China, mainland", 'Area'] = 'China'
     df.loc[df['Area'] == 'China, Hong Kong SAR', 'Area'] = 'China'
     df.loc[df['Area'] == 'China, Macao SAR', 'Area'] = 'China'
@@ -66,7 +66,7 @@ def get_industry_data():
 
 
 def get_consumption():
-    df = pd.read_csv("../data/fish-and-seafood-consumption-per-capita.csv")
+    df = pd.read_csv("data/fish-and-seafood-consumption-per-capita.csv")
 
     df = df.rename({'Fish, Seafood- Food supply quantity (kg/capita/yr) (FAO, 2020)': 'consumption',
                     'Entity': 'country'}, axis=1)
@@ -75,7 +75,7 @@ def get_consumption():
 
 
 def get_sustainability():
-    df = pd.read_csv('../data/fish-stocks-within-sustainable-levels.csv')
+    df = pd.read_csv('data/fish-stocks-within-sustainable-levels.csv')
     df = df.rename({
         'Share of fish stocks within biologically sustainable levels (FAO, 2020)': 'sustainable',
         'Share of fish stocks that are overexploited': 'overexploited'

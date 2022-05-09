@@ -1,9 +1,9 @@
 from dash import Dash, dcc, html, Output, Input, callback_context
-import sd_material_ui as sd
 
+from assets.components import button_array
 from plots.line_plots import plot_avg_global_consumption, plot_sustainability
-from web.plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability
-from web.plots.choropleth_maps import plot_consumption_map, plot_industry_map
+from plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability
+from plots.choropleth_maps import plot_consumption_map, plot_industry_map
 
 app = Dash(__name__)
 server = app.server
@@ -92,7 +92,6 @@ app.layout = html.Div(children=[
                              children=[
                                  dcc.Loading(dcc.Graph(
                                      id='fish-consumption-consumption',
-                                     # className='fade-left',
                                      figure=plot_avg_global_consumption(df_consumption)
                                  ))
                              ]),
@@ -102,9 +101,22 @@ app.layout = html.Div(children=[
                              children=[
                                  dcc.Loading(dcc.Graph(
                                      id='fish-consumption-trend',
-                                     # className='fade-left',
                                      figure=plot_sustainability(df_sustainability)
                                  ))
+                             ]),
+                     dcc.Tab(label='Industry',
+                             className='custom-tab',
+                             selected_className='custom-tab--selected',
+                             children=[
+                                 html.Div(className='two-row', children=[
+                                     html.Div([
+                                         button_array()
+                                     ]),
+                                     dcc.Loading(dcc.Graph(
+                                         id='fish-consumption-industry',
+                                         figure=plot_sustainability(df_sustainability)
+                                     ))
+                                 ])
                              ]),
                  ]),
         dcc.Markdown(className="text-box fade-right", children="""
@@ -137,43 +149,8 @@ app.layout = html.Div(children=[
                 imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
                  Suspendisse sit amet sodales ante, vitae rutrum elit. 
                  Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-                """),
-            html.Div(className='button-array',
-                     children=[
-                         sd.Button('Production',
-                                   id='btn-production',
-                                   variant='outlined',
-                                   n_clicks=0,
-                                   style={
-                                       'background-color': 'cornflowerblue',
-                                       'color': 'var(--text-color-dark)'
-                                   }),
-                         sd.Button('Supply',
-                                   id='btn-supply',
-                                   variant='outlined',
-                                   n_clicks=0,
-                                   style={
-                                       'background-color': 'forestgreen',
-                                       'color': 'var(--text-color-dark)'
-                                   }),
-                         sd.Button('Import',
-                                   id='btn-import',
-                                   variant='outlined',
-                                   n_clicks=0,
-                                   style={
-                                       'background-color': 'indianred',
-                                       'color': 'var(--text-color-dark)'
-                                   }),
-                         sd.Button('Export',
-                                   id='btn-export',
-                                   variant='outlined',
-                                   n_clicks=0,
-                                   style={
-                                       'background-color': 'rebeccapurple',
-                                       'color': 'var(--text-color-dark)'
-                                   }),
-                     ]),
-        ]),
+                """)]),
+
 
         dcc.Loading(dcc.Graph(
             id='fish-industry-map',

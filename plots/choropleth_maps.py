@@ -2,12 +2,12 @@ import json
 import plotly.express as px
 from utils.config import colors, font
 
-from web.utils.decorator import style_plot
+from utils.decorator import style_plot
 
 
 @style_plot
 def plot_consumption_map(df):
-    with open('../data/countries-simplified.json') as response:
+    with open('data/countries-simplified.json') as response:
         countries = json.load(response)
 
     range_color = (0, df.consumption.quantile(0.99))
@@ -113,7 +113,7 @@ def plot_consumption_map(df):
 @style_plot
 def plot_industry_map(df, title, quantile=0.975, **kwargs):
     """ Plot Import Export Supply Production """
-    with open('../data/countries-simplified.json') as response:
+    with open('data/countries-simplified.json') as response:
         countries = json.load(response)
 
     type = title.split(' ')[0]
