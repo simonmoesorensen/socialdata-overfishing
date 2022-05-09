@@ -1,8 +1,8 @@
 from dash import Dash, dcc, html, Output, Input, callback_context
 import sd_material_ui as sd
 
-from plots.line_plots import plot_avg_global_consumption, plot_sustainability
-from plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability
+from plots.line_plots import plot_avg_global_consumption, plot_sustainability, plot_fishing_type
+from plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability, get_fishing_types
 from plots.choropleth_maps import plot_consumption_map, plot_industry_map
 
 app = Dash(__name__)
@@ -14,7 +14,7 @@ year = '2017'
 # Data
 df_consumption = get_consumption()
 df_sustainability = get_sustainability()
-
+df_fish_types = get_fishing_types()
 df_population = get_population()
 df_industry = get_industry_data()
 
@@ -196,7 +196,35 @@ app.layout = html.Div(children=[
             imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
              Suspendisse sit amet sodales ante, vitae rutrum elit. 
              Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-            """)])
+            """)
+        ]),
+        dcc.Graph(id='china-fishing-types',
+                  figure=plot_fishing_type(df_fish_types, 'China'))
+    ]),
+
+    html.H2('Norway',
+            className='text-subtitle',
+            style={'marginTop': '4rem'}),
+
+    html.Div(className='two-column', children=[
+        html.Div(className='two-row', children=[
+            dcc.Markdown(className="text-box",
+                         style={'marginLeft': 0,
+                                'textAlign': 'left'},
+                         children="""
+            ## Some nice text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+            Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+            Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+            Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+            imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+             Suspendisse sit amet sodales ante, vitae rutrum elit. 
+             Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+            """)
+        ]),
+        dcc.Graph(id='norway-fishing-types',
+                  figure=plot_fishing_type(df_fish_types, 'Norway'))
     ]),
 ])
 

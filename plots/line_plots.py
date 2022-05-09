@@ -6,11 +6,6 @@ import plotly.express as px
 from sklearn.linear_model import LinearRegression
 
 
-def plot_trend(df_cons, df_sust):
-    fig_cons = plot_avg_global_consumption(df_cons)
-    fig_sust = plot_sustainability(df_sust)
-
-
 @style_plot
 def plot_avg_global_consumption(df):
     df_agg = df.groupby(["Year"]).mean().reset_index()
@@ -62,12 +57,6 @@ def plot_avg_global_consumption(df):
         yaxis=dict(
             title='Fish-seafood (kg / capita)',
             showgrid=True),
-        width=800,
-        height=600,
-        font_size=20,
-        margin=dict(
-            t=100
-        )
     )
 
     return fig
@@ -98,8 +87,6 @@ def plot_sustainability(df):
                              name='Overexploited'))
 
     fig.update_layout(
-        width=800,
-        height=600,
         title=dict(
             text='Percentage of overexploited fishing vs sustainable fishing'
         ),
@@ -108,11 +95,25 @@ def plot_sustainability(df):
         ),
         yaxis=dict(
             title='Share (%)'
-        ),
-        margin=dict(
-            t=100
-        ),
-        font_size=20,
+        )
+    )
+
+    return fig
+
+
+@style_plot
+def plot_fishing_type(df, country):
+    methods = ['longline', 'gillnet', 'small_scale', 'purse_seine', 'pelagic trawl', 'bottom_trawl', 'gear']
+
+    df_plot = pd.melt(df.reset_index(), ['Year', 'Entity'], methods, var_name='Fishing Type', value_name='Tonnes')
+
+    fig = px.area(df_plot.query(f'Entity == "{country}"'), x='Year', y='Tonnes', color='Fishing Type')
+
+    fig.update_layout(
+
+        title=dict(
+            text=f'Amount of fish caught by fishing type from 1950 to 2018<br><sup>{country}</sup>'
+        )
     )
 
     return fig

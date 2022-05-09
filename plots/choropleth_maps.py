@@ -36,7 +36,6 @@ def plot_consumption_map(df):
                           pad=4,
                           autoexpand=True
                       ),
-                      font_size=20,
                       coloraxis=dict(
                           colorbar=dict(
                               title=dict(
@@ -140,9 +139,6 @@ def plot_industry_map(df, title, quantile=0.975, **kwargs):
 
     fig.update_layout(width=800,
                       height=600,
-                      font_color=colors['text'],
-                      font_family=font,
-                      font_size=20,
                       coloraxis={
                           'colorbar': {
                               'title': type

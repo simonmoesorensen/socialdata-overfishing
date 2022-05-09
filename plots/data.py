@@ -81,3 +81,13 @@ def get_sustainability():
         'Share of fish stocks that are overexploited': 'overexploited'
     }, axis=1)
     return df
+
+def get_fishing_types():
+    fish_catch_methods = pd.read_csv('data/fish-catch-gear-type.csv')
+    fcm = fish_catch_methods[((fish_catch_methods["Entity"] == 'China') | (fish_catch_methods["Entity"] == 'Norway'))]
+    fcm = fcm.fillna(0)
+    fcm['gear'] = fcm['other_gear'] + fcm['unknown_gear']
+    fcm = fcm.drop(columns=['Code', 'unknown_gear', 'other_gear'])
+    fcm = fcm.sort_values(by=['Year'])
+    fcm = fcm.set_index('Year')
+    return fcm
