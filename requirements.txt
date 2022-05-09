@@ -1,0 +1,5 @@
+dash==2.0.0
+pandas==1.2.4
+plotly==5.3.1
+scikit_learn==1.0.2
+sd_material_ui==4.6.0
