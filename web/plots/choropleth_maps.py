@@ -22,32 +22,43 @@ def plot_consumption_map(df):
         mapbox_style="carto-positron",
         color_continuous_scale='YlOrRd',
         range_color=range_color,
-        title='Fish consumption (kg / capita / yr) from 1961 to 2017',
+        title='Fish consumption (kg / capita) from 1961 to 2017',
     )
 
     fig = px.choropleth_mapbox(df, zoom=0.5, **map_args)
-    fig.update_layout(width=1000,
-                      height=700,
-                      font_color=colors['text'],
-                      font_family=font,
+    fig.update_layout(width=800,
+                      height=600,
+                      margin=dict(
+                          l=60,
+                          r=0,
+                          b=60,
+                          t=100,
+                          pad=4,
+                          autoexpand=True
+                      ),
                       font_size=20,
-                      coloraxis={
-                          'colorbar': {
-                              'title': 'Consumption'
-                          }
-                      },
+                      coloraxis=dict(
+                          colorbar=dict(
+                              title=dict(
+                                  text='Consumption<br>(kg/capita)',
+                                  font=dict(
+                                      size=17
+                                  )
+                              )
+                          )
+                      ),
                       updatemenus=[
                           {
                               'buttons': [
                                   {
                                       "args": [None, {
                                           "frame": {
-                                              "duration": 500,
+                                              "duration": 100,
                                               "redraw": True
                                           },
                                           "fromcurrent": True,
                                           "transition": {
-                                              "duration": 300,
+                                              "duration": 200,
                                               "easing": "quadratic-in-out"
                                           }
                                       }],
@@ -66,7 +77,34 @@ def plot_consumption_map(df):
                                       "label": "Pause",
                                       "method": "animate"
                                   }
-                              ]
+                              ],
+                              'xanchor': 'left',
+                              'yanchor': 'top',
+                              'x': 0,
+                              'y': 0.01,
+                              'pad': {
+                                  'r': 0,
+                                  't': 10,
+                              }
+                          }
+                      ],
+                      sliders=[
+                          {
+                              "active": 0,
+                              "yanchor": "top",
+                              "xanchor": "left",
+                              "currentvalue": {
+                                  "font": {"size": 25},
+                                  "prefix": "Year: ",
+                                  "visible": True,
+                                  "xanchor": "right",
+                                  'offset': 90
+                              },
+                              "transition": {"duration": 200, "easing": "cubic-in-out"},
+                              "pad": {"b": 10, "t": 50},
+                              "len": 0.9,
+                              "x": 0.1,
+                              "y": 0,
                           }
                       ])
     return fig
@@ -100,8 +138,8 @@ def plot_industry_map(df, title, quantile=0.975, **kwargs):
                                **kwargs
                                )
 
-    fig.update_layout(width=1000,
-                      height=700,
+    fig.update_layout(width=800,
+                      height=600,
                       font_color=colors['text'],
                       font_family=font,
                       font_size=20,

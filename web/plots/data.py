@@ -72,3 +72,12 @@ def get_consumption():
                     'Entity': 'country'}, axis=1)
 
     return df
+
+
+def get_sustainability():
+    df = pd.read_csv('../data/fish-stocks-within-sustainable-levels.csv')
+    df = df.rename({
+        'Share of fish stocks within biologically sustainable levels (FAO, 2020)': 'sustainable',
+        'Share of fish stocks that are overexploited': 'overexploited'
+    }, axis=1)
+    return df

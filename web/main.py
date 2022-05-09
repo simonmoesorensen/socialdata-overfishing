@@ -1,7 +1,8 @@
 from dash import Dash, dcc, html, Output, Input, callback_context
 import sd_material_ui as sd
 
-from web.plots.data import get_consumption, group_by_elements, get_population, get_industry_data
+from plots.line_plots import plot_avg_global_consumption, plot_sustainability
+from web.plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability
 from web.plots.choropleth_maps import plot_consumption_map, plot_industry_map
 
 app = Dash(__name__)
@@ -10,6 +11,7 @@ year = '2017'
 
 # Data
 df_consumption = get_consumption()
+df_sustainability = get_sustainability()
 
 df_population = get_population()
 df_industry = get_industry_data()
@@ -20,6 +22,7 @@ industry_dict = {
     'supply': group_by_elements(df_industry, df_population, ['Domestic supply quantity'], year),
     'export': group_by_elements(df_industry, df_population, ['Export Quantity'], year)
 }
+
 
 # Callbacks
 @app.callback(
@@ -72,11 +75,38 @@ app.layout = html.Div(children=[
     ]),
 
     html.Div(className='two-column', style={'marginTop': '5rem'}, children=[
-        dcc.Loading(dcc.Graph(
-            id='fish-consumption-map',
-            className='fade-left',
-            figure=plot_consumption_map(df_consumption)
-        )),
+        dcc.Tabs(parent_className='fade-left',
+                 children=[
+                     dcc.Tab(label='Map',
+                             className='custom-tab',
+                             selected_className='custom-tab--selected',
+                             children=[
+                                 dcc.Loading(dcc.Graph(
+                                     id='fish-consumption-map',
+                                     figure=plot_consumption_map(df_consumption)
+                                 ))
+                             ]),
+                     dcc.Tab(label='Consumption',
+                             className='custom-tab',
+                             selected_className='custom-tab--selected',
+                             children=[
+                                 dcc.Loading(dcc.Graph(
+                                     id='fish-consumption-consumption',
+                                     # className='fade-left',
+                                     figure=plot_avg_global_consumption(df_consumption)
+                                 ))
+                             ]),
+                     dcc.Tab(label='Trend',
+                             className='custom-tab',
+                             selected_className='custom-tab--selected',
+                             children=[
+                                 dcc.Loading(dcc.Graph(
+                                     id='fish-consumption-trend',
+                                     # className='fade-left',
+                                     figure=plot_sustainability(df_sustainability)
+                                 ))
+                             ]),
+                 ]),
         dcc.Markdown(className="text-box fade-right", children="""
         ## Some nice text
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -90,9 +120,14 @@ app.layout = html.Div(children=[
         """)
     ]),
 
+    html.H2('New title!',
+            className='text-subtitle'),
+
     html.Div(className='two-column', style={'marginTop': '5rem'}, children=[
         html.Div(className='two-row', children=[
-            dcc.Markdown(className="text-box", style={'textAlign':'justify'}, children="""
+            dcc.Markdown(className="text-box",
+                         style={'textAlign': 'justify'},
+                         children="""
                 ## Some nice text
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
@@ -103,42 +138,41 @@ app.layout = html.Div(children=[
                  Suspendisse sit amet sodales ante, vitae rutrum elit. 
                  Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
                 """),
-            html.Div(style={'display': 'flex',
-                            'justifyContent': 'space-around',
-                            'margin': '2rem 4rem 0 4rem'}, children=[
-                sd.Button('Production',
-                          id='btn-production',
-                          variant='outlined',
-                          n_clicks=0,
-                          style={
-                              'background-color': 'cornflowerblue',
-                              'color': 'var(--text-color-dark)'
-                          }),
-                sd.Button('Supply',
-                          id='btn-supply',
-                          variant='outlined',
-                          n_clicks=0,
-                          style={
-                              'background-color': 'forestgreen',
-                              'color': 'var(--text-color-dark)'
-                          }),
-                sd.Button('Import',
-                          id='btn-import',
-                          variant='outlined',
-                          n_clicks=0,
-                          style={
-                              'background-color': 'indianred',
-                              'color': 'var(--text-color-dark)'
-                          }),
-                sd.Button('Export',
-                          id='btn-export',
-                          variant='outlined',
-                          n_clicks=0,
-                          style={
-                              'background-color': 'rebeccapurple',
-                              'color': 'var(--text-color-dark)'
-                          }),
-            ]),
+            html.Div(className='button-array',
+                     children=[
+                         sd.Button('Production',
+                                   id='btn-production',
+                                   variant='outlined',
+                                   n_clicks=0,
+                                   style={
+                                       'background-color': 'cornflowerblue',
+                                       'color': 'var(--text-color-dark)'
+                                   }),
+                         sd.Button('Supply',
+                                   id='btn-supply',
+                                   variant='outlined',
+                                   n_clicks=0,
+                                   style={
+                                       'background-color': 'forestgreen',
+                                       'color': 'var(--text-color-dark)'
+                                   }),
+                         sd.Button('Import',
+                                   id='btn-import',
+                                   variant='outlined',
+                                   n_clicks=0,
+                                   style={
+                                       'background-color': 'indianred',
+                                       'color': 'var(--text-color-dark)'
+                                   }),
+                         sd.Button('Export',
+                                   id='btn-export',
+                                   variant='outlined',
+                                   n_clicks=0,
+                                   style={
+                                       'background-color': 'rebeccapurple',
+                                       'color': 'var(--text-color-dark)'
+                                   }),
+                     ]),
         ]),
 
         dcc.Loading(dcc.Graph(
