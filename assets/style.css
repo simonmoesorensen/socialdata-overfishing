@@ -96,18 +96,20 @@
     --secondary-color-dark: #212529;
 }
 
+
 body {
     font-family: "Alata", sans-serif;
     background: linear-gradient(
             rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.7)
-    ),
-    url("background.jpg");
+    ), url("background.jpg") no-repeat fixed center;
     background-size: cover;
     margin: 0 5rem 0 5rem;
     font-size: 1rem;
     font-weight: 400;
+    background-size: cover;
 }
+
 
 .graph-left {
     margin-left: 3rem;
@@ -120,6 +122,11 @@ body {
 .title {
     color: var(--text-color-dark);
     font-size: 7rem;
+}
+
+.title-medium {
+    color: var(--text-color-dark);
+    font-size: 4rem;
 }
 
 .text-body {
