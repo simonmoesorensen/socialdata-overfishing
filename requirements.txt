@@ -3,3 +3,4 @@ pandas==1.2.4
 plotly==5.3.1
 scikit_learn==1.0.2
 sd_material_ui==4.6.0
+numpy==1.20.3
