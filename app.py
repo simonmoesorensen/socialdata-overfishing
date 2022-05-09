@@ -76,116 +76,127 @@ app.layout = html.Div(children=[
         )
     ]),
 
-    html.Div(className='two-column', style={'marginTop': '5rem'}, children=[
-        dcc.Tabs(parent_className='fade-left',
-                 children=[
-                     dcc.Tab(label='Map',
-                             className='custom-tab fade-in',
-                             selected_className='custom-tab--selected',
-                             children=[
-                                 dcc.Loading(dcc.Graph(
-                                     id='fish-consumption-map',
-                                     figure=plot_consumption_map(df_consumption)
-                                 ))
-                             ]),
-                     dcc.Tab(label='Consumption',
-                             className='custom-tab',
-                             selected_className='custom-tab--selected',
-                             children=[
-                                 dcc.Loading(dcc.Graph(
-                                     id='fish-consumption-consumption',
-                                     figure=plot_avg_global_consumption(df_consumption)
-                                 ))
-                             ]),
-                     dcc.Tab(label='Trend',
-                             className='custom-tab',
-                             selected_className='custom-tab--selected',
-                             children=[
-                                 dcc.Loading(dcc.Graph(
-                                     id='fish-consumption-trend',
-                                     figure=plot_sustainability(df_sustainability)
-                                 ))
-                             ]),
-                     dcc.Tab(label='Industry',
-                             className='custom-tab',
-                             selected_className='custom-tab--selected',
-                             children=[
-                                 html.Div(className='two-row', children=[
-                                     html.Div([
-                                         html.Div(className='button-array',
-                                                  children=[
-                                                      sd.Button('Production',
-                                                                id='btn-production',
-                                                                variant='outlined',
-                                                                n_clicks=0,
-                                                                style={
-                                                                    'background-color': 'cornflowerblue',
-                                                                    'color': 'var(--text-color-dark)'
-                                                                }),
-                                                      sd.Button('Supply',
-                                                                id='btn-supply',
-                                                                variant='outlined',
-                                                                n_clicks=0,
-                                                                style={
-                                                                    'background-color': 'forestgreen',
-                                                                    'color': 'var(--text-color-dark)'
-                                                                }),
-                                                      sd.Button('Import',
-                                                                id='btn-import',
-                                                                variant='outlined',
-                                                                n_clicks=0,
-                                                                style={
-                                                                    'background-color': 'indianred',
-                                                                    'color': 'var(--text-color-dark)'
-                                                                }),
-                                                      sd.Button('Export',
-                                                                id='btn-export',
-                                                                variant='outlined',
-                                                                n_clicks=0,
-                                                                style={
-                                                                    'background-color': 'rebeccapurple',
-                                                                    'color': 'var(--text-color-dark)'
-                                                                }),
-                                                  ])
-                                     ]),
-                                     dcc.Loading(dcc.Graph(
-                                         id='fish-industry-map',
-                                         figure=plot_sustainability(df_sustainability)
-                                     ))
-                                 ])
-                             ]),
-                 ]),
-        dcc.Markdown(className="text-box fade-right", children="""
-        ## Some nice text
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
-        Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
-        Nunc accumsan odio leo, in consequat purus cursus sit amet. 
-        Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
-        imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
-         Suspendisse sit amet sodales ante, vitae rutrum elit. 
-         Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-        """)
-    ]),
+    html.Div(className='two-column', style={'marginTop': '5rem'},
+             children=[
+                 dcc.Tabs(parent_className='fade-left',
+                          children=[
+                              dcc.Tab(label='Map',
+                                      className='custom-tab fade-in',
+                                      selected_className='custom-tab--selected',
+                                      children=[
+                                          dcc.Loading(dcc.Graph(
+                                              id='fish-consumption-map',
+                                              figure=plot_consumption_map(df_consumption)
+                                          ))
+                                      ]),
+                              dcc.Tab(label='Consumption',
+                                      className='custom-tab',
+                                      selected_className='custom-tab--selected',
+                                      children=[
+                                          dcc.Loading(dcc.Graph(
+                                              id='fish-consumption-consumption',
+                                              figure=plot_avg_global_consumption(df_consumption)
+                                          ))
+                                      ]),
+                              dcc.Tab(label='Trend',
+                                      className='custom-tab',
+                                      selected_className='custom-tab--selected',
+                                      children=[
+                                          dcc.Loading(dcc.Graph(
+                                              id='fish-consumption-trend',
+                                              figure=plot_sustainability(df_sustainability)
+                                          ))
+                                      ]),
+                              dcc.Tab(label='Industry',
+                                      className='custom-tab',
+                                      selected_className='custom-tab--selected',
+                                      children=[
+                                          html.Div(className='two-row', children=[
+                                              dcc.Loading(dcc.Graph(
+                                                  id='fish-industry-map',
+                                                  figure=plot_sustainability(df_sustainability)
+                                              )),
+                                              html.Div([
+                                                  html.Div(className='button-array',
+                                                           children=[
+                                                               sd.Button('Production',
+                                                                         id='btn-production',
+                                                                         variant='outlined',
+                                                                         n_clicks=0,
+                                                                         style={
+                                                                             'background-color': 'cornflowerblue',
+                                                                             'color': 'var(--text-color-dark)'
+                                                                         }),
+                                                               sd.Button('Supply',
+                                                                         id='btn-supply',
+                                                                         variant='outlined',
+                                                                         n_clicks=0,
+                                                                         style={
+                                                                             'background-color': 'forestgreen',
+                                                                             'color': 'var(--text-color-dark)'
+                                                                         }),
+                                                               sd.Button('Import',
+                                                                         id='btn-import',
+                                                                         variant='outlined',
+                                                                         n_clicks=0,
+                                                                         style={
+                                                                             'background-color': 'indianred',
+                                                                             'color': 'var(--text-color-dark)'
+                                                                         }),
+                                                               sd.Button('Export',
+                                                                         id='btn-export',
+                                                                         variant='outlined',
+                                                                         n_clicks=0,
+                                                                         style={
+                                                                             'background-color': 'rebeccapurple',
+                                                                             'color': 'var(--text-color-dark)'
+                                                                         }),
+                                                           ])
+                                              ])
+                                          ])
+                                      ]),
+                          ]),
+                 html.Div(className='two-row fade-right',
+                          children=[
+                              dcc.Markdown(className="text-box", children="""
+                                 ## Some nice text
+                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                 Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+                                 Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+                                 Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+                                 Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+                                 imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+                                 Suspendisse sit amet sodales ante, vitae rutrum elit. 
+                                 Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+                                 """),
+                              html.Div(className='countries',
+                                       children=[
+                                           html.Button(className='country-button china'),
+                                           html.Button(className='country-button norway')
+                                       ])
+                          ]),
+             ]),
 
-    html.H2('New title!',
-            className='text-subtitle'),
+    html.H2('China',
+            className='text-subtitle',
+            style={'marginTop': '4rem'}),
 
-    html.Div(className='two-column', style={'marginTop': '5rem'}, children=[
+    html.Div(className='two-column', children=[
         html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
-                         style={'textAlign': 'justify'},
+                         style={'marginLeft': 0,
+                                'textAlign': 'left'},
                          children="""
-                ## Some nice text
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
-                Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
-                Nunc accumsan odio leo, in consequat purus cursus sit amet. 
-                Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
-                imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
-                 Suspendisse sit amet sodales ante, vitae rutrum elit. 
-                 Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-                """)])
+            ## Some nice text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+            Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+            Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+            Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+            imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+             Suspendisse sit amet sodales ante, vitae rutrum elit. 
+             Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+            """)])
     ]),
 ])
 

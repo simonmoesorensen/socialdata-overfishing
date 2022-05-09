@@ -148,6 +148,9 @@ body {
     opacity: 0.9;
     font-weight: 400;
     flex: 1;
+    line-height: 2;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .two-row {
@@ -162,6 +165,35 @@ body {
     justify-content: space-around;
     margin: 2rem 4rem 0;
     flex: 2;
+}
+
+.countries {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.country-button {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background: white;
+}
+
+.china {
+    background: url('https://cdn.britannica.com/90/7490-004-BAD4AA72/Flag-China.jpg');
+    background-position-x: -4px;
+    background-position-y: 29px;
+    background-size: 25rem;
+}
+
+.norway {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/512px-Flag_of_Norway.svg.png');
+    background-position-x: -10px;
+    background-position-y: 18px;
+    background-size: 14rem;
 }
 
 .custom-tab {
