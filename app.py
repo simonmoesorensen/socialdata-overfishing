@@ -107,11 +107,11 @@ app.layout = html.Div(className='main', children=[
                          ),
                          html.A(
                              html.Img(
-                                src='./assets/github-icon.png',
-                                style={
-                                    'width': '25px',
-                                    'height': '25px',
-                                }),
+                                 src='./assets/github-icon.png',
+                                 style={
+                                     'width': '25px',
+                                     'height': '25px',
+                                 }),
                              target='_blank',
                              href='https://github.com/simonmoesorensen/socialdata-overfishing',
                              style={
@@ -128,13 +128,13 @@ app.layout = html.Div(className='main', children=[
         children=[
             dcc.Tabs(parent_className='fade-left flex-0',
                      children=[
-                         dcc.Tab(label='Map',
+                         dcc.Tab(label='Consumption',
                                  className='custom-tab fade-up',
                                  selected_className='custom-tab--selected',
                                  children=[
                                      html.Div(className='two-row', children=[
                                          dcc.Graph(
-                                             id='fish-tab-map',
+                                             id='fish-tab-consumption',
                                              figure=plot_consumption_map(df_consumption)),
                                          dcc.Markdown(className='text-box',
                                                       children="""
@@ -456,28 +456,31 @@ which is a good way to get enough nutrition in a sustainable way.
         html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
                          children="""
-        ## Some nice text
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
-        Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
-        Nunc accumsan odio leo, in consequat purus cursus sit amet. 
-        Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
-        imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
-         Suspendisse sit amet sodales ante, vitae rutrum elit. 
-         Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+There are a lot of ways to catch fish around the world. Overall, pole-and-line,
+longline, and gillnet methods are more common in lower-income countries where 
+much of the fishing activity is subsistence or small-scale. Purse seine and 
+trawling methods are more common in industrial fishing practices, these tend 
+to catch more fish per unit of effort.[].
+
+Trawling methods have larger negative impacts on ecology compared to purse seine, 
+especially bottom trawls, because bottom trawls are pulled directly above or on
+the seabed. They are very efficient in capturing large number of fish, but give
+the organisms that live there a devastating impact. Furthermore, trawling methods
+generate much more discards than others, one-fifth (21%) of catch from bottom
+trawls is thrown back into the ocean. Fishers will throw unwanted fish back
+into the ocean, including sharks, sea turtles and juvenile fish, but the 
+survival rate of these discarded animals is lower and it will lead to overfishing.
+
+Both China and Norway are high seafood production countries, hence pole-and-line,
+longline, and gillnet methods are not efficient ways to meet their demand.
+It is clear to see that China and Norway use different fish catching methods, 
+Norwegian people prefer to use purse seine while Chinese prefer trawl methods.
+It means that China is using a pretty unsustainable way to supply fish and
+seafood. As we can see, the fish catch number of all types decreased in China 
+from 2015, which may be the consequence of bottom trawling.
+The seabed damage and unsustainable catch lead to unhealthy fish and fish stocks
+shortage. In contrast, Norway's fish catch volume is relatively stable and sustainable.
         """),
-            dcc.Markdown(className="text-box",
-                         children="""
-            ## Some nice text
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
-            Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
-            Nunc accumsan odio leo, in consequat purus cursus sit amet. 
-            Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
-            imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
-             Suspendisse sit amet sodales ante, vitae rutrum elit. 
-             Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-            """),
         ]),
 
     ]),

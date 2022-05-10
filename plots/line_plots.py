@@ -89,14 +89,14 @@ def plot_sustainability(df):
 
     fig.update_layout(
         title=dict(
-            text='Percentage of overexploited fishing vs sustainable fishing'
+            text='Percentage of overexploited fishing vs sustainable fishing',
         ),
         xaxis=dict(
-            title='Year'
+            title='Year',
         ),
         yaxis=dict(
-            title='Share (%)'
-        )
+            title='Share (%)',
+        ),
     )
 
     return fig
@@ -111,10 +111,15 @@ def plot_fishing_type(df, country):
     fig = px.area(df_plot.query(f'Entity == "{country}"'), x='Year', y='Tonnes', color='Fishing Type')
 
     fig.update_layout(
-
         title=dict(
             text=f'Amount of fish caught by fishing type from 1950 to 2018<br><sup>{country}</sup>'
-        )
+        ),
+        xaxis=dict(
+            showgrid=False
+        ),
+        yaxis=dict(
+            showgrid=False
+        ),
     )
 
     return fig
