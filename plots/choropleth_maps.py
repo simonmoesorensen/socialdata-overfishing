@@ -23,6 +23,7 @@ def plot_consumption_map(df):
         color_continuous_scale='YlOrRd',
         range_color=range_color,
         title='Fish consumption (kg / capita) from 1961 to 2017',
+        center={'lat': 12, 'lon': 5}
     )
 
     fig = px.choropleth_mapbox(df, zoom=0.5, **map_args)
