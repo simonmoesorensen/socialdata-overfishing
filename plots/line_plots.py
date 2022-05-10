@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -113,6 +114,54 @@ def plot_fishing_type(df, country):
 
         title=dict(
             text=f'Amount of fish caught by fishing type from 1950 to 2018<br><sup>{country}</sup>'
+        )
+    )
+
+    return fig
+
+
+@style_plot
+def plot_gdp_cons(df_gdp, df_cons):
+    df_gdp = df_gdp.query('["Norway", "China"] in `Country Name`')
+
+    df_plot = pd.merge(df_gdp,
+                       df_cons.rename({'Code': 'Country Code'}, axis=1)[['consumption', 'Country Code', 'Year']],
+                       on=['Country Code', 'Year'])
+
+    fig = px.scatter(df_plot,
+                     x='gdp_pr_capita',
+                     y='consumption',
+                     color='Country Code',
+                     log_x=True,
+                     hover_name='Year',
+                     trendline='ols',
+                     trendline_options=dict(log_x=True),
+                     trendline_scope='overall')
+
+    df_plot['gdp_pr_capita_log'] = np.log(df_plot['gdp_pr_capita'])
+    corr = df_plot[['gdp_pr_capita_log', 'consumption']].corr().iloc[0, 1]
+
+    fig.add_annotation(text=f"Pearson-Spearman correlation: {corr:.2f}",
+                       xref="paper", yref="paper",
+                       x=0.1, y=0.95,
+                       showarrow=False,
+                       bordercolor="#c7c7c7",
+                       borderwidth=2,
+                       borderpad=10,
+                       font=dict(
+                           size=15
+                       )
+                       )
+
+    fig.update_layout(
+        title=dict(
+            text='Consumption vs GDP pr capita from 1961 to 2017'
+        ),
+        xaxis=dict(
+            title='Log(GDP / capita)'
+        ),
+        yaxis=dict(
+            title='Fish-seafood (kg / capita)'
         )
     )
 

@@ -107,9 +107,12 @@ body {
     margin: 0 5rem 0 5rem;
     font-size: 1rem;
     font-weight: 400;
-    background-size: cover;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+}
 
 .graph-left {
     margin-left: 3rem;
@@ -117,6 +120,12 @@ body {
 
 .graph-right {
     margin-right: 3rem;
+}
+
+.graph-wide {
+    align-self: center;
+    min-width: 80%;
+    max-width: 100%;
 }
 
 .title {

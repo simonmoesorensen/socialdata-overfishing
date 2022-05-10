@@ -1,8 +1,10 @@
 from dash import Dash, dcc, html, Output, Input, callback_context
 import sd_material_ui as sd
 
-from plots.line_plots import plot_avg_global_consumption, plot_sustainability, plot_fishing_type
-from plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability, get_fishing_types
+from plots.bar_plots import plot_protein
+from plots.line_plots import plot_avg_global_consumption, plot_sustainability, plot_fishing_type, plot_gdp_cons
+from plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability, \
+    get_fishing_types, get_gdp, get_protein
 from plots.choropleth_maps import plot_consumption_map, plot_industry_map
 
 app = Dash(__name__)
@@ -17,6 +19,9 @@ df_sustainability = get_sustainability()
 df_fish_types = get_fishing_types()
 df_population = get_population()
 df_industry = get_industry_data()
+df_gdp = get_gdp()
+df_protein = get_protein()
+
 
 industry_dict = {
     'production': group_by_elements(df_industry, df_population, ['Production'], year),
@@ -64,7 +69,7 @@ def animate_fish_industry_maps(btn1, btn2, btn3, btn4):
     return plot
 
 
-app.layout = html.Div(children=[
+app.layout = html.Div(className='main', children=[
     html.Div([
         html.H1(
             children='Fishing for sustainability',
@@ -181,16 +186,49 @@ app.layout = html.Div(children=[
                      ]),
         ]),
 
-    html.H2('China',
-            id='china',
+    #######################################################################
+    ###                      GDP and Consumption                       ####
+    #######################################################################
+
+    html.H2('GDP and Consumption',
+            id='gdp-consumption',
             className='title-medium',
             style={'marginTop': '16rem'}),
 
     html.Div(className='two-column', children=[
-        html.Div(className='two-row', children=[
-            dcc.Markdown(className="text-box",
-                         style={'marginLeft': 0},
-                         children="""
+        dcc.Markdown(className="text-box",
+                     children="""
+            ## Some nice text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+            Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+            Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+            Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+            imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+             Suspendisse sit amet sodales ante, vitae rutrum elit. 
+             Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+            """),
+        dcc.Graph(id='gdp-consumption-plot',
+                  figure=plot_gdp_cons(df_gdp, df_consumption))
+    ]),
+
+    #######################################################################
+    ###                         Protein intake                         ####
+    #######################################################################
+
+    html.H2('Protein intake',
+            id='protein-intake',
+            className='title-medium',
+            style={'marginTop': '8rem'}),
+
+    dcc.Graph(id='protein-intake-plot',
+              className='graph-wide',
+              figure=plot_protein(df_protein),
+              responsive=True),
+
+    html.Div(className='two-column', children=[
+        dcc.Markdown(className="text-box",
+                     children="""
             ## Some nice text
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
@@ -201,21 +239,36 @@ app.layout = html.Div(children=[
              Suspendisse sit amet sodales ante, vitae rutrum elit. 
              Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
             """)
-        ]),
-        dcc.Graph(id='china-fishing-types',
-                  figure=plot_fishing_type(df_fish_types, 'China'))
     ]),
 
-    html.H2('Norway',
-            id='norway',
+    #######################################################################
+    ###                Aquaculture and capture production              ####
+    #######################################################################
+
+    html.H2('Aquaculture and capture production',
+            id='aquaculture-capture-production',
+            className='title-medium',
+            style={'marginTop': '8rem'}),
+
+    #######################################################################
+    ###                          Fishing types                         ####
+    #######################################################################
+
+    html.H2('Fishing types',
+            id='fishing-types',
             className='title-medium',
             style={'marginTop': '8rem'}),
 
     html.Div(className='two-column', children=[
         html.Div(className='two-row', children=[
-            dcc.Markdown(className="text-box",
-                         style={'marginLeft': 0},
-                         children="""
+            dcc.Graph(id='china-fishing-types',
+                      figure=plot_fishing_type(df_fish_types, 'China')),
+            dcc.Graph(id='norway-fishing-types',
+                      figure=plot_fishing_type(df_fish_types, 'Norway')),
+        ]),
+        dcc.Markdown(className="text-box",
+                     style={'marginLeft': 0},
+                     children="""
             ## Some nice text
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
@@ -225,11 +278,36 @@ app.layout = html.Div(children=[
             imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
              Suspendisse sit amet sodales ante, vitae rutrum elit. 
              Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-            """)
-        ]),
-        dcc.Graph(id='norway-fishing-types',
-                  figure=plot_fishing_type(df_fish_types, 'Norway'))
+            """),
     ]),
+
+    html.Div(className='two-column', children=[
+        html.Div(className='two-row', children=[
+            dcc.Markdown(className="text-box",
+                         style={'marginLeft': 0},
+                         children="""
+        ## Some nice text
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+        Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+        Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+        Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+        imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+         Suspendisse sit amet sodales ante, vitae rutrum elit. 
+         Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+        """)
+        ]),
+    ]),
+
+    #######################################################################
+    ###                     Aquaculture emissions                      ####
+    #######################################################################
+
+    html.H2('Aquaculture emissions',
+            id='aquaculture-emissions',
+            className='title-medium',
+            style={'marginTop': '8rem'}),
+
 ])
 
 if __name__ == '__main__':
