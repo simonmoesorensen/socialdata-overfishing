@@ -3,6 +3,7 @@ from pathlib import Path
 
 root = Path(__file__).parent.parent
 
+
 def group_by_elements(df, df_population, elements, year):
     country_code_map, country_code_to_country = get_population_maps()
 
@@ -26,12 +27,12 @@ def get_population_maps():
     return country_code_map, country_code_to_country
 
 
-def add_population(df):
+def add_population(df, country_col='Area'):
     df_population = get_population()
     country_code_map, country_code_to_country = get_population_maps()
 
     if 'Country Code' not in df.columns:
-        df['Country Code'] = df.apply(lambda x: country_code_map[x['Area']]['Alpha-3 code'], axis=1)
+        df['Country Code'] = df.apply(lambda x: country_code_map[x[country_col]]['Alpha-3 code'], axis=1)
 
     melted = pd.melt(df_population, id_vars=['Country Name', 'Country Code'], value_vars=df_population.columns[2:],
                      var_name='Year',
@@ -101,6 +102,19 @@ def get_fishing_types():
     return fcm
 
 
+def get_protein_ghg():
+    entities = ['Poultry', 'Pork', 'Beef', 'Lamb & goat', 'Eggs', 'Milk', 'Fish, Seafood']
+
+    gg = pd.read_csv('data/ghg-per-protein-poore.csv')
+    gg = gg.drop(columns=['Code', 'Year'])
+    gg = gg.query(f'Entity in {entities}')
+    gg = gg.rename({
+        'GHG emissions per 100g protein (Poore & Nemecek, 2018)': 'Emissions',
+        'Entity': 'Protein source'
+    }, axis=1)
+    return gg
+
+
 def get_gdp():
     df = pd.read_csv(root / 'data/country_gdp.csv')
     df = pd.melt(df, ['Country Name', 'Country Code'], df.columns[4:(len(df.columns) - 1)],
@@ -112,6 +126,7 @@ def get_gdp():
     df['gdp_pr_capita'] = df.gdp / df.population
     return df
 
+
 def get_protein():
     df = pd.read_csv('data/animal-protein-consumption.csv')
     protein = df[((df["Entity"] == 'China') | (df["Entity"] == 'Norway'))]
@@ -120,3 +135,53 @@ def get_protein():
     protein = protein.drop(columns=['Code', 'Year', 'Other meat'])
     protein = protein.set_index('Entity')
     return protein
+
+
+def get_aquaculture():
+    capture_aqua = pd.read_csv('data/capture-fisheries-vs-aquaculture.csv')
+    capture_aqua_entity = capture_aqua[
+        ['Entity', 'Year', 'Aquaculture production (metric tons)', 'Capture fisheries production (metric tons)']]
+
+    capture_aqua_entity = capture_aqua_entity.sort_values(by=['Year'])
+
+    ca = capture_aqua_entity.query("['China', 'Norway'] in Entity")
+
+    ca = ca.rename({
+        'Aquaculture production (metric tons)': 'Aquaculture',
+        'Capture fisheries production (metric tons)': 'Capture fisheries'
+    }, axis=1)
+
+    df = pd.melt(ca, ['Entity', 'Year'],
+                 ['Aquaculture', 'Capture fisheries'],
+                 var_name='Production Type',
+                 value_name='Production')
+
+    df = df.rename({
+        'Entity': 'Country'
+    }, axis=1)
+
+    df = add_population(df, country_col='Country')
+
+    df['Production pr capita'] = df.Production / df.population
+    return df
+
+
+def get_aquaculture_emissions():
+    nitrogen_emissions_seafood = pd.read_csv('data/nitrogen-emissions-seafood.csv')
+    phosphorous_emissions_seafood = pd.read_csv('data/phosphorous-emissions-seafood.csv')
+
+    df = pd.merge(nitrogen_emissions_seafood, phosphorous_emissions_seafood)
+    df = df.drop(columns=['Code', 'Year'])
+
+    df = df.rename({
+        'Nitrogen (kgN / t edible weight)': 'Nitrogen',
+        'Phosphorous (kgP / t edible weight)': 'Phosphorous',
+    }, axis=1)
+
+    df = pd.melt(df, ['Entity'], ['Nitrogen', 'Phosphorous'],
+                 var_name='Greenhouse Gas',
+                 value_name='Amount')
+
+    df = df[df.Entity != 'Chicken']
+
+    return df

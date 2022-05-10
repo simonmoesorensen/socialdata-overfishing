@@ -166,3 +166,32 @@ def plot_gdp_cons(df_gdp, df_cons):
     )
 
     return fig
+
+
+@style_plot
+def plot_aquaculture_production(df):
+    fig = px.line(df,
+                  x='Year',
+                  y='Production pr capita',
+                  color='Production Type',
+                  facet_row='Country',
+                  facet_row_spacing=0.1
+                  )
+
+    fig.update_yaxes(matches=None)
+
+    fig.update_layout(
+        title='Fish production types in China and Norway',
+        xaxis=dict(
+            title='Year',
+        ),
+        yaxis=dict(
+            title='Production (tonnes) / capita'
+        ),
+        height=700
+    )
+
+    fig.for_each_xaxis(lambda x: x.update(showgrid=False))
+    fig.for_each_yaxis(lambda x: x.update(showgrid=True))
+
+    return fig

@@ -1,10 +1,11 @@
 from dash import Dash, dcc, html, Output, Input, callback_context
 import sd_material_ui as sd
 
-from plots.bar_plots import plot_protein
-from plots.line_plots import plot_avg_global_consumption, plot_sustainability, plot_fishing_type, plot_gdp_cons
+from plots.bar_plots import plot_protein, plot_protein_ghg, plot_aquaculture_emissions
+from plots.line_plots import plot_avg_global_consumption, plot_sustainability, plot_fishing_type, plot_gdp_cons, \
+    plot_aquaculture_production
 from plots.data import get_consumption, group_by_elements, get_population, get_industry_data, get_sustainability, \
-    get_fishing_types, get_gdp, get_protein
+    get_fishing_types, get_gdp, get_protein, get_protein_ghg, get_aquaculture, get_aquaculture_emissions
 from plots.choropleth_maps import plot_consumption_map, plot_industry_map
 
 app = Dash(__name__)
@@ -21,7 +22,9 @@ df_population = get_population()
 df_industry = get_industry_data()
 df_gdp = get_gdp()
 df_protein = get_protein()
-
+df_ghg = get_protein_ghg()
+df_aqua = get_aquaculture()
+df_aqua_emissions = get_aquaculture_emissions()
 
 industry_dict = {
     'production': group_by_elements(df_industry, df_population, ['Production'], year),
@@ -226,9 +229,11 @@ app.layout = html.Div(className='main', children=[
               figure=plot_protein(df_protein),
               responsive=True),
 
-    html.Div(className='two-column', children=[
-        dcc.Markdown(className="text-box",
-                     children="""
+    html.Div(className='two-column',
+             style={'marginTop': '5rem'},
+             children=[
+                 dcc.Markdown(className="text-box",
+                              children="""
             ## Some nice text
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
@@ -238,8 +243,10 @@ app.layout = html.Div(className='main', children=[
             imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
              Suspendisse sit amet sodales ante, vitae rutrum elit. 
              Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-            """)
-    ]),
+            """),
+                 dcc.Graph(id='protein-emissions-plot',
+                           figure=plot_protein_ghg(df_ghg))
+             ]),
 
     #######################################################################
     ###                Aquaculture and capture production              ####
@@ -250,6 +257,22 @@ app.layout = html.Div(className='main', children=[
             className='title-medium',
             style={'marginTop': '8rem'}),
 
+    html.Div(className='two-column', children=[
+        dcc.Markdown(className="text-box",
+                     children="""
+        ## Some nice text
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+        Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+        Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+        Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+        imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+         Suspendisse sit amet sodales ante, vitae rutrum elit. 
+         Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+        """),
+        dcc.Graph(id='aquaculture-capture-production-plot',
+                  figure=plot_aquaculture_production(df_aqua))
+    ]),
     #######################################################################
     ###                          Fishing types                         ####
     #######################################################################
@@ -266,25 +289,8 @@ app.layout = html.Div(className='main', children=[
             dcc.Graph(id='norway-fishing-types',
                       figure=plot_fishing_type(df_fish_types, 'Norway')),
         ]),
-        dcc.Markdown(className="text-box",
-                     style={'marginLeft': 0},
-                     children="""
-            ## Some nice text
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
-            Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
-            Nunc accumsan odio leo, in consequat purus cursus sit amet. 
-            Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
-            imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
-             Suspendisse sit amet sodales ante, vitae rutrum elit. 
-             Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-            """),
-    ]),
-
-    html.Div(className='two-column', children=[
         html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
-                         style={'marginLeft': 0},
                          children="""
         ## Some nice text
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -295,8 +301,21 @@ app.layout = html.Div(className='main', children=[
         imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
          Suspendisse sit amet sodales ante, vitae rutrum elit. 
          Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
-        """)
+        """),
+            dcc.Markdown(className="text-box",
+                         children="""
+            ## Some nice text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+            Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+            Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+            Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+            imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+             Suspendisse sit amet sodales ante, vitae rutrum elit. 
+             Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+            """),
         ]),
+
     ]),
 
     #######################################################################
@@ -307,6 +326,23 @@ app.layout = html.Div(className='main', children=[
             id='aquaculture-emissions',
             className='title-medium',
             style={'marginTop': '8rem'}),
+
+    html.Div(className='two-column', children=[
+        dcc.Graph(id='aquaculture-emissions-plot',
+                  figure=plot_aquaculture_emissions(df_aqua_emissions)),
+        dcc.Markdown(className="text-box",
+                     children="""
+    ## Some nice text
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
+    Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
+    Nunc accumsan odio leo, in consequat purus cursus sit amet. 
+    Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
+    imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
+     Suspendisse sit amet sodales ante, vitae rutrum elit. 
+     Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+    """)
+    ]),
 
 ])
 

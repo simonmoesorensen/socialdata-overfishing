@@ -8,8 +8,7 @@ import plotly.express as px
 def plot_protein(protein):
     protein_sum = protein.sum(axis=1)
 
-    protein_cds = {}
-    protein_cds['countries'] = list(protein.index.values)
+    protein_cds = {'countries': list(protein.index.values)}
     for food in list(protein.columns):
         protein_cds[food] = list((protein[food].values / protein_sum) * 100)
 
@@ -17,6 +16,7 @@ def plot_protein(protein):
     df_plot = pd.melt(df_plot, ['countries'], df_plot.columns[1:],
                       var_name='Protein source',
                       value_name='Protein amount')
+    df_plot = df_plot.sort_values('Protein source', ascending=False)
 
     fig = px.bar(df_plot,
                  x='Protein amount',
@@ -27,13 +27,57 @@ def plot_protein(protein):
     fig.update_layout(
         title='Distribution of protein sources<br><sup>China vs Norway</sup>',
         xaxis=dict(
-            title='Protein amount (%)',
+            title='Protein distribution (%)',
             showgrid=True
         ),
         yaxis=dict(
             title='Country'
         ),
         width=1200
+    )
+
+    return fig
+
+
+@style_plot
+def plot_protein_ghg(df):
+    df = df.sort_values('Protein source', ascending=False)
+
+    fig = px.bar(df,
+                 x='Protein source',
+                 y='Emissions',
+                 color='Protein source',
+                 )
+
+    fig.update_layout(
+        title='Protein source GHG emissions per 100g protein from 2017',
+        xaxis=dict(
+            title='Protein source'
+        ),
+        yaxis=dict(
+            title='GHG emissions pr 100g protein'
+        )
+    )
+
+    return fig
+
+
+def plot_aquaculture_emissions(df):
+    fig = px.bar(df,
+                 x='Amount',
+                 y='Entity',
+                 color='Greenhouse Gas',
+                 orientation='h',
+                 )
+
+    fig.update_layout(
+        title='Emissions from aquaculture farming different species',
+        xaxis=dict(
+            title='Amount (kg / tonne edible weight)'
+        ),
+        yaxis=dict(
+            title='Farmed species'
+        )
     )
 
     return fig
