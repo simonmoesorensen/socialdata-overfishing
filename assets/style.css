@@ -267,6 +267,12 @@ html {
     flex-direction: column;
 }
 
+.contact-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .graph-left {
     margin-left: 3rem;
 }

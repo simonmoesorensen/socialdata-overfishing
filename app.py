@@ -75,26 +75,51 @@ def animate_fish_industry_maps(btn1, btn2, btn3, btn4):
 app.layout = html.Div(className='main', children=[
     html.Div(className='navbar',
              children=[
-                html.Ul([
-                    html.Li(html.A('Conclusion', href='#conclusion')),
-                    html.Li(html.A('Aquaculture Emissions', href='#aquaculture-emissions')),
-                    html.Li(html.A('Fishing Types', href='#fishing-types')),
-                    html.Li(html.A('Aquaculture and Capture production', href='#aquaculture-capture-production')),
-                    html.Li(html.A('Protein intake', href='#protein-intake')),
-                    html.Li(html.A('GDP and Consumption', href='#gdp-consumption')),
-                    html.Li(html.A('Introduction', href='#introduction')),
-                ])
+                 html.Ul([
+                     html.Li(html.A('Conclusion', href='#conclusion')),
+                     html.Li(html.A('Aquaculture Emissions', href='#aquaculture-emissions')),
+                     html.Li(html.A('Fishing Types', href='#fishing-types')),
+                     html.Li(html.A('Aquaculture and Capture production', href='#aquaculture-capture-production')),
+                     html.Li(html.A('Protein intake', href='#protein-intake')),
+                     html.Li(html.A('GDP and Consumption', href='#gdp-consumption')),
+                     html.Li(html.A('Introduction', href='#introduction')),
+                 ])
              ]),
-    html.Div([
-        html.H1(
-            children='Fishing for sustainability',
-            className='title fade-left'
-        ),
-        html.H2(
-            children='A story on the best and worst fisheries of the world',
-            className='text-subtitle fade-left'
-        )
-    ]),
+
+    html.Div(id='title',
+             children=[
+                 html.H1(
+                     children='Fishing for sustainability',
+                     className='title fade-left'
+                 ),
+                 html.H2(
+                     children='A story on the best and worst fisheries of the world',
+                     className='text-subtitle fade-left'
+                 ),
+                 html.Div(
+                     className='contact-info fade-left',
+                     children=[
+                         html.H4(
+                             'By: Niels Jansen (s217149), Yufan Du (s210356), and Simon Moe Sørensen (s174420)',
+                             style={
+                                 'color': 'var(--text-secondary-color-dark)'
+                             }
+                         ),
+                         html.A(
+                             html.Img(
+                                src='./assets/github-icon.png',
+                                style={
+                                    'width': '25px',
+                                    'height': '25px',
+                                }),
+                             target='_blank',
+                             href='https://github.com/simonmoesorensen/socialdata-overfishing',
+                             style={
+                                 'marginLeft': '1rem'
+                             })
+                     ])
+
+             ]),
 
     html.Div(
         id='introduction',
