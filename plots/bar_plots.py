@@ -62,6 +62,7 @@ def plot_protein_ghg(df):
     return fig
 
 
+@style_plot
 def plot_aquaculture_emissions(df):
     fig = px.bar(df,
                  x='Amount',
