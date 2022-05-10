@@ -78,7 +78,8 @@ def plot_aquaculture_emissions(df):
         ),
         yaxis=dict(
             title='Farmed species'
-        )
+        ),
+        width=800,
     )
 
     return fig

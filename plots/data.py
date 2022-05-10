@@ -184,4 +184,5 @@ def get_aquaculture_emissions():
 
     df = df[df.Entity != 'Chicken']
 
+    df['Entity'] = df['Entity'].apply(lambda x: x.replace(" (farmed)", ""))
     return df
