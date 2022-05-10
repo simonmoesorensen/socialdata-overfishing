@@ -456,11 +456,16 @@ which is a good way to get enough nutrition in a sustainable way.
         html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
                          children="""
+
+# Fishing methods                         
+
 There are a lot of ways to catch fish around the world. Overall, pole-and-line,
 longline, and gillnet methods are more common in lower-income countries where 
 much of the fishing activity is subsistence or small-scale. Purse seine and 
 trawling methods are more common in industrial fishing practices, these tend 
 to catch more fish per unit of effort.[].
+
+## Trawling
 
 Trawling methods have larger negative impacts on ecology compared to purse seine, 
 especially bottom trawls, because bottom trawls are pulled directly above or on
@@ -470,6 +475,8 @@ generate much more discards than others, one-fifth (21%) of catch from bottom
 trawls is thrown back into the ocean. Fishers will throw unwanted fish back
 into the ocean, including sharks, sea turtles and juvenile fish, but the 
 survival rate of these discarded animals is lower and it will lead to overfishing.
+
+## China versus Norway
 
 Both China and Norway are high seafood production countries, hence pole-and-line,
 longline, and gillnet methods are not efficient ways to meet their demand.
