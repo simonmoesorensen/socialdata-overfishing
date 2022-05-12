@@ -5,7 +5,7 @@ root = Path(__file__).parent.parent
 
 
 def group_by_elements(df, df_population, elements, year):
-    country_code_map, country_code_to_country = get_population_maps()
+    country_code_map, country_code_to_country = get_country_code_map()
 
     df_production = df.query(f'Year == {year}').groupby(['Country Code', 'Element']).sum()['Value']
     df_production = df_production.reset_index().query(f'Element in {elements}').groupby(
@@ -18,8 +18,11 @@ def group_by_elements(df, df_population, elements, year):
     return df_production
 
 
-def get_population_maps():
-    """ Population from 2017 """
+def get_country_code_map():
+    """
+    Retrieve the mapping between country names to country codes and vice versa
+
+    """
     country_code_map = pd.read_csv(root / 'data/country_code_map.csv')[['Country', 'Alpha-3 code']]
     country_code_map['Alpha-3 code'] = country_code_map['Alpha-3 code'].apply(lambda x: x.split('"')[1])
     country_code_map = country_code_map.set_index('Country').to_dict(orient='index')
@@ -29,7 +32,7 @@ def get_population_maps():
 
 def add_population(df, country_col='Area'):
     df_population = get_population()
-    country_code_map, country_code_to_country = get_population_maps()
+    country_code_map, country_code_to_country = get_country_code_map()
 
     if 'Country Code' not in df.columns:
         df['Country Code'] = df.apply(lambda x: country_code_map[x[country_col]]['Alpha-3 code'], axis=1)
