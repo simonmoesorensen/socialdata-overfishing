@@ -142,7 +142,7 @@ def plot_industry_map(df, title, quantile=0.975, **kwargs):
                       height=600,
                       coloraxis={
                           'colorbar': {
-                              'title': type + ' kg / capita'
+                              'title': type + '<br>kg / capita'
                           }
                       })
     return fig

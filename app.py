@@ -531,15 +531,27 @@ shortage. In contrast, Norway's fish catch volume is relatively stable and susta
     html.Div(className='two-column', children=[
         dcc.Markdown(className="text-box",
                      children="""
-    ## Some nice text
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
-    Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
-    Nunc accumsan odio leo, in consequat purus cursus sit amet. 
-    Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
-    imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
-     Suspendisse sit amet sodales ante, vitae rutrum elit. 
-     Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+The food industry is a mayor driver in enviromental change, responsible for a quarter of all greenhouse gasses (GHG). 
+Reducing the GHG emmisions is vital to reaching emission goals and creating a sustainable feature.
+
+Fish and other aquatic foods (blue foods) are an effective way of reaching this sustainable diet. As the graph shows GHG emmisions, 
+as well as other enviromental stressors, of most blue food groups compare favourably to industrial chicken production, 
+which typically has lower stressors then other livestock. However this holds true for both aquacultere captures as well as capture fisheries.
+Although generally farmed fish produce a lower or equal average emission then their captured counterpart.
+
+Most of the emissions of aquacultere result from growing fish food, whearas in the capture fisheries fuel causes the most emission. 
+For fed systems 87% of N and 94% of P occur on food farms. 
+Which also means that non-fed groups such as seaweeds and bivalve remove more N and P than is emitted during production.
+
+However since aquacuture uses land for both the fish and food farms, this creates a trade-offs with alternate uses, 
+including production of other foods. And since the availability and access to freshwater inceasingly constraints the agriculture industry, 
+this creates a downside to fed-systems where freshwater is largely used in feed production, 
+whearas capture fisheries and unfed systems require little freshwater.
+
+As it turns out although farmed fish does not appear to have a mayor enviromental benefit, compared to captured fish, 
+at the moment it is also safe to say that the industry has not nearly reached it's full potential. 
+It's still a young and rapid growing sector with many promosing technolgies and policies to improve it's efficiency. 
+Where the main problem to tackle while expanding is making sure new inventions are not beond the reach of the many small producers.
     """),
         dcc.Graph(id='aquaculture-emissions-plot',
                   figure=plot_aquaculture_emissions(df_aqua_emissions))
