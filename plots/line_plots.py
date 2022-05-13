@@ -190,13 +190,11 @@ def plot_aquaculture_production(df):
         xaxis=dict(
             title='Year',
         ),
-        yaxis=dict(
-            title='Production (tonnes) / capita'
-        ),
-        height=700
+        height=1000
     )
 
     fig.for_each_xaxis(lambda x: x.update(showgrid=False))
-    fig.for_each_yaxis(lambda x: x.update(showgrid=True))
+    fig.for_each_yaxis(lambda x: x.update(showgrid=True,
+                                          title='Production (tonnes) / capita'))
 
     return fig

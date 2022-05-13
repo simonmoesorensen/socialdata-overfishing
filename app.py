@@ -49,25 +49,25 @@ def animate_fish_industry_maps(btn1, btn2, btn3, btn4):
         # Default to production
         plot = plot_industry_map(
             industry_dict['import'].reset_index(),
-            title="Import in kg / capita in year 2017"
+            title="Import for year 2017"
         )
     elif 'btn-export' in changed_id:
         # Default to production
         plot = plot_industry_map(
             industry_dict['export'].reset_index(),
-            title="Export in kg / capita in year 2017"
+            title="Export for year 2017"
         )
     elif 'btn-supply' in changed_id:
         # Default to production
         plot = plot_industry_map(
             industry_dict['supply'].reset_index(),
-            title="Supply in kg / capita in year 2017"
+            title="Supply for year 2017"
         )
     else:
         # Default to production
         plot = plot_industry_map(
             industry_dict['production'].reset_index(),
-            title="Production in kg / capita in year 2017"
+            title="Production for year 2017"
         )
     return plot
 
@@ -201,16 +201,13 @@ Unfortunately the reality is worse, since we are fishing more and more each year
                                  selected_className='custom-tab--selected',
                                  children=[
                                      html.Div(className='two-row', children=[
-                                         dcc.Loading(dcc.Graph(
-                                             id='fish-tab-industry',
-                                             figure=plot_sustainability(df_sustainability)
-                                         )),
-                                         html.Div([
-                                             html.Div(className='two-row',
+                                         dcc.Loading(
+                                             html.Div(className='industry-container',
                                                       children=[
-                                                          html.Div(className='button-array',
+                                                          html.Div(className='button-array-column',
                                                                    children=[
                                                                        sd.Button('Production',
+                                                                                 className='button',
                                                                                  id='btn-production',
                                                                                  variant='outlined',
                                                                                  n_clicks=0,
@@ -219,6 +216,7 @@ Unfortunately the reality is worse, since we are fishing more and more each year
                                                                                      'color': 'var(--text-color-dark)'
                                                                                  }),
                                                                        sd.Button('Supply',
+                                                                                 className='button',
                                                                                  id='btn-supply',
                                                                                  variant='outlined',
                                                                                  n_clicks=0,
@@ -227,6 +225,7 @@ Unfortunately the reality is worse, since we are fishing more and more each year
                                                                                      'color': 'var(--text-color-dark)'
                                                                                  }),
                                                                        sd.Button('Import',
+                                                                                 className='button',
                                                                                  id='btn-import',
                                                                                  variant='outlined',
                                                                                  n_clicks=0,
@@ -235,6 +234,7 @@ Unfortunately the reality is worse, since we are fishing more and more each year
                                                                                      'color': 'var(--text-color-dark)'
                                                                                  }),
                                                                        sd.Button('Export',
+                                                                                 className='button',
                                                                                  id='btn-export',
                                                                                  variant='outlined',
                                                                                  n_clicks=0,
@@ -243,6 +243,13 @@ Unfortunately the reality is worse, since we are fishing more and more each year
                                                                                      'color': 'var(--text-color-dark)'
                                                                                  }),
                                                                    ]),
+                                                          dcc.Graph(
+                                                              id='fish-tab-industry',
+                                                              figure=plot_sustainability(df_sustainability))
+                                                      ])),
+                                         html.Div([
+                                             html.Div(className='two-row',
+                                                      children=[
                                                           dcc.Markdown(className='text-box',
                                                                        children="""
 # Industry 
@@ -310,13 +317,13 @@ governments lack the resources for this work. Ironically goverments created this
 
 
                                  """),
-                         html.Div(className='countries fade-up',
-                                  children=[
-                                      html.A(html.Button(className='country-button china'),
-                                             href='#china'),
-                                      html.A(html.Button('', className='country-button norway'),
-                                             href='#norway')
-                                  ])
+                         # html.Div(className='countries fade-up',
+                         #          children=[
+                         #              html.A(html.Button(className='country-button china'),
+                         #                     href='#china'),
+                         #              html.A(html.Button('', className='country-button norway'),
+                         #                     href='#norway')
+                         #          ])
                      ]),
         ]),
 
@@ -424,15 +431,35 @@ which is a good way to get enough nutrition in a sustainable way.
     html.Div(className='two-column', children=[
         dcc.Markdown(className="text-box",
                      children="""
-        ## Some nice text
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Aliquam elementum velit a vestibulum feugiat. Aliquam ut justo risus. 
-        Morbi tincidunt nisl sem, a dapibus massa sollicitudin id. Sed quis arcu nunc. 
-        Nunc accumsan odio leo, in consequat purus cursus sit amet. 
-        Quisque feugiat sodales neque sed feugiat. Quisque eros metus, 
-        imperdiet vitae accumsan quis, varius ac ligula. Praesent iaculis ornare vestibulum.
-         Suspendisse sit amet sodales ante, vitae rutrum elit. 
-         Aenean porttitor facilisis pretium. Aliquam sit amet augue justo.
+The growing issue of overfishing has allowed the rapid growth of the aqaculture, or fish farming, 
+industry over the last decades as can be seen in the figures. 
+Fish produced from farming activities currently accounts for over one quarter of all fish directly consumed by humans.
+
+Many people believe that aquaculture will replace a large part of wild capture production over the next decades. 
+And that it will be able to reduce pressure on ocean harvests to allow the fish population to recover. 
+However in reality the industry is not as efficient as it seems and the industry will have to change if it ever wants to fulfill this role.
+
+To begin with a large part of the aquaculture production are carnivorous fish species, such as salmon, 
+that require 2 to 5 times more fish protein, in the form of fish meal made from scrap fish products, 
+to feed the farmed species than is supplied by the farmed product. And a lot of this protein originates from wild captured fish, 
+which as you can imagine is counter-productive. 
+Even herbivorous and omnivorous freshwater fish that require minimal quantities of fish meal are fed with about 15% fish meal, 
+exceeding required levels. For the ten types of fish most commonly farmed, 
+an average of 1.9 kg of wild fish is required for every kilogram of fish raised on compound feeds. 
+So it's clear to see that the growing aquaculture industry cannot continue to rely on infinite stocks of wild-caught fish.
+
+Currently China produces around two thirds of the global aquaculture production, with the common carp, an omnivorous, as it's biggest product. 
+Whilest Norways most farmed fish is the Atlantic salmon, a carnivour. 
+Should China solve it's inefficient practises it's aquaculture industry should be able to thrive and result in a greater global (net) fish supply.
+
+Unfortunately inefficiency is not the only problem with this industry. Other include that:
+
+* Aquaculture can also diminish wild fisheries indirectly by habitat modification
+* wild caught fish are used to stock aquaculture ponds
+* the creation of fish meal through over-exploitation reduces available food supplies for marine predators
+* the introduction of exotic species, through farm escapees, upsets ecosystems and harms wild fish populations
+* untreated wastewater of fish farms causes nutrient pollution
+* Aquaculture is a lot more at risk from outside threads then the fishing industry. For example, in 2010 aquaculture production in China suffered losses of 1.7 million tonnes (worth US$3.3 thousand million) due to disease outbreaks (295 thousand tonnes), natural disasters (1.2 million tonnes), and pollution (123 thousand tonnes) (FAO 2012).
         """),
         dcc.Graph(id='aquaculture-capture-production-plot',
                   figure=plot_aquaculture_production(df_aqua))
