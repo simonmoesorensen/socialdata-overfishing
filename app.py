@@ -340,16 +340,31 @@ governments lack the resources for this work. Ironically goverments created this
         dcc.Markdown(className="text-box",
                      children="""
                      
-The graph shows us that the relationship between per capita seafood consumption and average GDP per capita. 
-What we can see is that they are strong positive correlated. The more money people earn, the more seafood they eat.
+We've already established that the average person nowadays eats about twice as much fish as they did 60 years ago and the reason we eat this much fish 
+is simple, it's healthy and delicious. But that begs the question, why didn't we eat this much fish previously. Well the answer won't surprise you, 
+it's money. Fish as well as meat is historically one of the more expensive food items and therefore wasn't previously as easy to come by.
 
-According to Nestle et al., annual household income influences food choices, particularly costly foods such as fish. 
-Namely, fish is expected to be less accessible in ‘poor urban and rural communities’, and even if it is available, 
-insufficient capital potentially generates a barrier for acquisition and consumption (Nestle et al., 1998).
 
-As we can see, Norway's per capita GDP is significantly higher than china's, hence every Norwegian eats more seafood per year. 
-Overall, both countries tend to get richer and eat more seafood.
- 
+
+Indeed the graph shows us that the relationship between per capita seafood consumption and average GDP per capita. What we can see from it is that 
+they are strong positively correlated. The more money people earn, the more seafood they eat.
+
+
+
+> According to Nestle et al., "*annual household income influences food choices, particularly costly foods such as fish. Namely, fish is expected to 
+be less accessible in ‘poor urban and rural communities’, and even if it is available, insufficient capital potentially generates a barrier for 
+acquisition and consumption.*" (Nestle et al., 1998)
+
+
+As we can see this results in the fact that since Norway's per capita GDP is significantly higher than china's, every Norwegian eats more seafood 
+per year. However something else that should be noted is that the price of fish also plays a role here. Having a higher GDP is nice, 
+but utterly meaningless if the price of a product also increases. And this is where the trends of countries can start to differ in the 
+upcoming decades, since the growth of the aquaculture industry could start to bring down the local price of fish.
+
+"*In other regions, particularly throughout Asia, the expansion of aquaculture has driven down real prices for farmed fish produced in large volumes, 
+making them increasingly accessible to low-income consumers. Meanwhile, wild capture fish have become more expensive, both in real terms and relative 
+to farmed fish, often restricting their accessibility to wealthier consumers*" (Naylor et al., 21) However this remains to be seen.
+
             """),
         dcc.Graph(id='gdp-consumption-plot',
                   figure=plot_gdp_cons(df_gdp, df_consumption))
