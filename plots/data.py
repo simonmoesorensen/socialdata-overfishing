@@ -108,7 +108,7 @@ def get_fishing_types():
 def get_protein_ghg():
     entities = ['Poultry', 'Pork', 'Beef', 'Lamb & goat', 'Eggs', 'Milk', 'Fish, Seafood']
 
-    gg = pd.read_csv('data/ghg-per-protein-poore.csv')
+    gg = pd.read_csv(root / 'data/ghg-per-protein-poore.csv')
     gg = gg.drop(columns=['Code', 'Year'])
     gg = gg.query(f'Entity in {entities}')
     gg = gg.rename({
@@ -184,8 +184,6 @@ def get_aquaculture_emissions():
     df = pd.melt(df, ['Entity'], ['Nitrogen', 'Phosphorous'],
                  var_name='Greenhouse Gas',
                  value_name='Amount')
-
-    df = df[df.Entity != 'Chicken']
 
     df['Entity'] = df['Entity'].apply(lambda x: x.replace(" (farmed)", ""))
     return df
