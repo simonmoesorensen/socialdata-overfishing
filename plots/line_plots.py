@@ -89,7 +89,7 @@ def plot_sustainability(df):
 
     fig.update_layout(
         title=dict(
-            text='Percentage of overexploited fishing vs sustainable fishing',
+            text='Percentage of global overexploited fishing vs <br>sustainable fishing',
         ),
         xaxis=dict(
             title='Year',
@@ -112,7 +112,7 @@ def plot_fishing_type(df, country):
 
     fig.update_layout(
         title=dict(
-            text=f'Amount of fish caught by fishing type from 1950 to 2018<br><sup>{country}</sup>'
+            text=f'Amount of fish caught by fishing methods from 1950 to 2018<br><sup>{country}</sup>'
         ),
         xaxis=dict(
             showgrid=False

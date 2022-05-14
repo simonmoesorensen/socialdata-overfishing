@@ -79,9 +79,9 @@ app.layout = html.Div(className='main', children=[
                      html.Li(html.A('Conclusion', href='#conclusion')),
                      html.Li(html.A('Aquaculture Emissions', href='#aquaculture-emissions')),
                      html.Li(html.A('Aquaculture and Capture production', href='#aquaculture-capture-production')),
-                     html.Li(html.A('Fishing Types', href='#fishing-types')),
+                     html.Li(html.A('Fishing Methods', href='#fishing-types')),
                      html.Li(html.A('Protein intake', href='#protein-intake')),
-                     html.Li(html.A('GDP and Consumption', href='#gdp-consumption')),
+                     html.Li(html.A('Consumption and GDP', href='#gdp-consumption')),
                      html.Li(html.A('Introduction', href='#introduction')),
                  ])
              ]),
@@ -309,7 +309,7 @@ we found the advantage of seafood as a protein intake, and in order to maximize 
     ###                      GDP and Consumption                       ####
     #######################################################################
 
-    html.H2('GDP and Consumption',
+    html.H2('Consumption and GDP',
             id='gdp-consumption',
             className='title-medium'),
 
@@ -391,10 +391,10 @@ So we've established that fish is arguably the better protein source with a rela
             """),
 
     #######################################################################
-    ###                          Fishing types                         ####
+    ###                          Fishing Methods                         ####
     #######################################################################
 
-    html.H2('Fishing Types',
+    html.H2('Fishing Methods',
             id='fishing-types',
             className='title-medium'),
 

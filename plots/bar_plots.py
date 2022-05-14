@@ -55,7 +55,8 @@ def plot_protein_ghg(df):
             title='Protein source'
         ),
         yaxis=dict(
-            title='GHG emissions (kgCO₂eq) <br>pr 100g protein'
+            title='GHG emissions (kgCO₂eq) <br>pr 100g protein',
+            showgrid=True
         )
     )
 
