@@ -285,37 +285,26 @@ self produced, which also have significant cultural and geographical differences
                      children=[
                          dcc.Markdown(className="text-box", children="""
 # Introduction
-                                 
-Overfishing, meaning we catch more fish then can naturally be replenished, has a wide variety of causes. 
-However the biggest and most appearent one is simply the fact that we eat to much fish. 
-Since the big supply of fish can only exist if there is a big demand for it. 
-According to the Dietary Guidelines for Americans, 2010 (DGA) (add link and double check):
+Fishing has been the most important industry for human beings since ancient times, including marine fisheries, freshwater fisheries, 
+capture fisheries and aquaculture fisheries. Seafood is also one of the most common foods, such as fish and shrimp. 
+It is precisely because of these factors that the development of fishery and the problems it brings have received attention.
 
-> People are recommended to eat 227 grams of fish per week, which comes to about 11.8kg yearly.
+People's demand for seafood is mainly reflected in several aspects. For developing countries, 
+small-scale fishing can meet people's basic living needs, and may also become the economic backbone of the country, 
+such as exporting a large number of seafood to the world's Other countries. For developed countries or relatively wealthy countries, 
+they seem to pay more attention to the nutrition, taste and environmental friendliness of seafood, so they will meet the demand through fishing, 
+farming and importing seafood. No matter from which point of view, it will lead to an increasing demand for seafood in the world. 
+However, many countries do not pay attention to sustainable fishing, so the reserves of marine fish are getting smaller and smaller. 
+Combined with many wrong fishing methods, it has brought a devastating blow to other marine life and the marine environment.
 
-## Old text
+In order to alleviate the supply gap caused by the shortage of seafood resources, many countries in the world have thought of innovative methods 
+such as the development of aquaculture. This can help to alleviate some of the pressure on wild fish catch. But it also brings many new problems, 
+such as greenhouse gas emission and eutrophication.
 
-Some additional consequences of overfishing are that:
-- many isolated communities, rely on fishing not for income but for dietary purposes, with fish being their main source of protein. 
-With the depletion of the fish population, they find their very way of life threatened.
-- many fish species are going extinct and large preditors like sharks, dolphins, whales, and tuna, who are essential to 
-maintaining the balanced ecosystem, are often innocent bystanders, caught in a trawler’s nets.
-- the decrease in algea eating fish, causes an increase in the amount of algea who's acidity can negatively impact fish 
-population, plankton, and reefs.
-- fishermen disregarding maritime law and venturing into foreign waters, can be seen as a sign of agression.
-
-Of course there are dozens of other causes of overfishing. And it is essential to note that each region has a has their 
-own political and economical reasons that are creating the crisis. We simply can’t place every country into the same boat. However a few universal causes are that:
-- there is a hugh challenge in regulating fishing vessels at the ports. The amount of vassels is just to large and most 
-governments lack the resources for this work. Ironically goverments created this enviroment themselves as we have an estimated three times more fleets then necessairy, due to the high subsidies for fisherman.
-- there is a lack of oversight when it comes to how much individual vassels are fishing, allowing them to overfish at will.
-- there are little to no regulations on international waters.
-- it is hard for countries to know the current fish populations and therefore the optimal fishing quotas.
-- many public officials are either ignorant to fishing regulations and problems, which allows many fishermen to get around fishing laws.
-- small vassels are able to fish and unload without being detected.
-- only 1.5% of the world’s oceans are protected waters, leaving the rest fair game for fisherman.
-
-
+Both China and Norway are big fishing nations, but their fisheries development methods are very different. But in general, 
+Norway's overexploited fishing rate is much lower than China. Therefore, we want to find ways of sustainable fishing by 
+comparing these two countries and find out where China's unsustainable fishing activities are. More interestingly, 
+we found the advantage of seafood as a protein intake, and in order to maximize this advantage, sustainable fishing activities become more important.
                                  """),
                          # html.Div(className='countries fade-up',
                          #          children=[
