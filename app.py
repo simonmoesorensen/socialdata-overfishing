@@ -80,7 +80,7 @@ app.layout = html.Div(className='main', children=[
                      html.Li(html.A('Aquaculture Emissions', href='#aquaculture-emissions')),
                      html.Li(html.A('Aquaculture and Capture production', href='#aquaculture-capture-production')),
                      html.Li(html.A('Fishing Methods', href='#fishing-types')),
-                     html.Li(html.A('Protein intake', href='#protein-intake')),
+                     html.Li(html.A('Protein Intake', href='#protein-intake')),
                      html.Li(html.A('Consumption and GDP', href='#gdp-consumption')),
                      html.Li(html.A('Introduction', href='#introduction')),
                  ])
@@ -347,10 +347,10 @@ products and rely on overploiting marine life and are increasing global greenhou
     ]),
 
     #######################################################################
-    ###                         Protein intake                         ####
+    ###                         Protein Intake                         ####
     #######################################################################
 
-    html.H2('Protein intake',
+    html.H2('Protein Intake',
             id='protein-intake',
             className='title-medium'),
 
