@@ -78,8 +78,8 @@ app.layout = html.Div(className='main', children=[
                  html.Ul([
                      html.Li(html.A('Conclusion', href='#conclusion')),
                      html.Li(html.A('Aquaculture Emissions', href='#aquaculture-emissions')),
-                     html.Li(html.A('Fishing Types', href='#fishing-types')),
                      html.Li(html.A('Aquaculture and Capture production', href='#aquaculture-capture-production')),
+                     html.Li(html.A('Fishing Types', href='#fishing-types')),
                      html.Li(html.A('Protein intake', href='#protein-intake')),
                      html.Li(html.A('GDP and Consumption', href='#gdp-consumption')),
                      html.Li(html.A('Introduction', href='#introduction')),
@@ -316,31 +316,30 @@ we found the advantage of seafood as a protein intake, and in order to maximize 
     html.Div(className='two-column', children=[
         dcc.Markdown(className="text-box",
                      children="""
-                     
-We've already established that the average person nowadays eats about twice as much fish as they did 60 years ago and the reason we eat this much fish 
-is simple, it's healthy and delicious. But that begs the question, why didn't we eat this much fish previously. Well the answer won't surprise you, 
-it's money. Fish as well as meat is historically one of the more expensive food items and therefore wasn't previously as easy to come by.
-
-
+We've already established that the average person nowadays eats about twice as much fish as they did 60 years ago 
+and the reason we eat this much fish is simple, it's healthy and delicious. But that begs the question, why didn't we eat this 
+much fish previously. Well the answer won't surprise you, it's money. Fish as well as meat is historically one of the more 
+expensive food items and therefore wasn't previously as easy to come by. 
 
 Indeed the graph shows us that the relationship between per capita seafood consumption and average GDP per capita. What we can see from it is that 
-they are strong positively correlated. The more money people earn, the more seafood they eat.
+they are strong positively correlated. The more money people earn, the more seafood they eat. 
 
-
-
-> According to Nestle et al., "*annual household income influences food choices, particularly costly foods such as fish. Namely, fish is expected to 
+According to Nestle et al., "*annual household income influences food choices, particularly costly foods such as fish. Namely, fish is expected to 
 be less accessible in ‘poor urban and rural communities’, and even if it is available, insufficient capital potentially generates a barrier for 
-acquisition and consumption.*" (Nestle et al., 1998)
+acquisition and consumption.*" (Nestle et al., 1998) 
 
-
-As we can see this results in the fact that since Norway's per capita GDP is significantly higher than china's, every Norwegian eats more seafood 
+As we can see this results in the fact that since Norway's per capita GDP is significantly higher than China's, every Norwegian eats more seafood 
 per year. However something else that should be noted is that the price of fish also plays a role here. Having a higher GDP is nice, 
-but utterly meaningless if the price of a product also increases. And this is where the trends of countries can start to differ in the 
-upcoming decades, since the growth of the aquaculture industry could start to bring down the local price of fish.
+but utterly meaningless if the price of a product also increases. And this is where the trends of countries can start to differ in the upcoming 
+decades, since the growth of the aquaculture industry could start to bring down the local price of fish. "*In other regions, particularly 
+throughout Asia, the expansion of aquaculture has driven down real prices for farmed fish produced in large volumes, making them increasingly 
+accessible to low-income consumers. Meanwhile, wild capture fish have become more expensive, both in real terms and relative to farmed fish, 
+often restricting their accessibility to wealthier consumers*" (Naylor et al., 21) However this remains to be seen. 
 
-"*In other regions, particularly throughout Asia, the expansion of aquaculture has driven down real prices for farmed fish produced in large volumes, 
-making them increasingly accessible to low-income consumers. Meanwhile, wild capture fish have become more expensive, both in real terms and relative 
-to farmed fish, often restricting their accessibility to wealthier consumers*" (Naylor et al., 21) However this remains to be seen.
+In general it's safe to say that the average global GDP will continue to rise, meaning people will continue to improve their living quality instead 
+of just fullfilling their basic needs. As a result they are now more concerned about dietary health and nutritional intake, which will cause the 
+demand of protein foods, such as fish and meat to continue growing. Seeing as how we are already unable to supply the worlds demand for protein 
+products and rely on overploiting marine life and are increasing global greenhouse gas (GHG) emmisions, how will we facilitate this growth? 
 
             """),
         dcc.Graph(id='gdp-consumption-plot',
@@ -355,105 +354,42 @@ to farmed fish, often restricting their accessibility to wealthier consumers*" (
             id='protein-intake',
             className='title-medium'),
 
-    dcc.Graph(id='protein-intake-plot',
-              className='graph-wide',
-              figure=plot_protein(df_protein),
-              responsive=True),
-
-    dcc.Markdown(className="text-box",
-                 style={'marginTop': '2rem'},
-                 children="""
-## Distribution of protein sources
-
-As we mentioned before, the per capita GDP in both China and Norway is growing year by year, 
-it means that people can improve their living quality on the basis of meeting their basic needs. 
-They are now more concerned about diet health and nutrient intake.
-
-Seafood contains a high-quality protein that includes all of the essential amino acids for human health, 
-making it a complete protein source. The protein in seafood is also easier to digest because it has less connective 
-tissue than red meats and poultry. For certain groups of people such as the elderly who may have difficulty chewing or 
-digesting their food, seafood can be a good choice to help them obtain their daily protein needs.[]
-
-We can see in the graph that Chinese people intake protein mainly from pork and seafood while Norwegian people prefer 
-milk and seafood. It accounts for around 24% of protein consumption in both countries, it means people in China and 
-Norway has similar seafood protein intake habit. Interesting thing is that Norway per capita GDP is more than four times 
-China's in recent years, however, the differences in seafood consumption between the two countries are not much like that. 
-Hence, it means that China has a high production volume which can meet people demand with relatively low prices.
-            """),
-
     html.Div(className='two-column',
-             style={'marginTop': '5rem'},
+             style={'marginTop': '2rem'},
              children=[
-
                  dcc.Graph(id='protein-emissions-plot',
                            figure=plot_protein_ghg(df_ghg)),
                  dcc.Markdown(className='text-box',
                               children="""
 ## Greenhouse Gas Emission
+Human behaviours are causing several global environmental disruptions. Greenhouse gas emission is one of the most important environmental problems, causing global temperatures to rise. With people becomming increasingly  awarene of the need for environmental protection. More and more people want to reduce the carbon footprint of their food, hence they prefer to eat foods that have lower greenhouse gas emissions.
 
-Human behaviours are causing several global environmental disruptions. 
-Greenhouse gas emission is one of the most important environmental problems, causing global temperatures to rise. 
-With the increasing people's awareness of environmental protection. More and more people want to reduce the carbon 
-footprint of their food, hence they prefer to eat foods that have lower greenhouse gas emissions.
+Ensuring everyone in the world has access to a nutritious diet in a sustainable way is one of the greatest challenges we face. Food production contributes around 37 percent of global greenhouse gas (GHG) emissions, showing the huge impact that our diets have on climate change. What’s more, animal-based foods produce roughly twice the emissions of plant-based ones[].
 
-Ensuring everyone in the world has access to a nutritious diet in a sustainable way is one of the greatest challenges 
-we face. Food production contributes around 37 percent of global greenhouse gas (GHG) emissions, showing the huge impact
-that our diets have on climate change. What’s more, animal-based foods produce roughly twice the emissions of 
-plant-based ones[].
+In the bar chart, we can see that beef and lamb are the main culprits of GHG emissions. That's because they are ruminant animals, they rely on specialized bacteria in their gut to break down food. These bacteria release a large amount of methane, a potent GHG that strongly contributes to global warming[]. 
 
-In the bar chart, we can see that beef and lamb are the main culprits of GHG emissions if we want to get 100g of protein, 
-which accounts for approximately 70kg. That's because they are ruminant animals, they rely on specialized bacteria in 
-their gut to break down food. These bacteria release a large amount of methane, a potent GHG that strongly contributes
-to global warming[].However, it only discharges 6kg GHG to get the same amount of protein by eating fish and seafood,
-which is a good way to get enough nutrition in a sustainable way.
-  
-                              """)
+The bar chart also shows us that fish and seafood create the least GHG emissions for the same amount of protein, therefore being a better way to get enough nutrition in a sustainable way. More seafood also has other benefits apart from being more enviromentally friendly.
+                              """),
              ]),
 
-    #######################################################################
-    ###                Aquaculture and capture production              ####
-    #######################################################################
+    dcc.Graph(id='protein-intake-plot',
+              className='graph-wide',
+              style={'marginTop': '2rem'},
+              figure=plot_protein(df_protein),
+              responsive=True),
 
-    html.H2('Aquaculture and Capture production',
-            id='aquaculture-capture-production',
-            className='title-medium'),
+    dcc.Markdown(className="text-box",
+                 children="""
+## Distribution of protein sources
+Seafood contains a high-quality protein that includes all of the essential amino acids for human health, making it a complete protein source. The protein in seafood is also easier to digest because it has less connective tissue than red meats and poultry. For certain groups of people such as the elderly who may have difficulty chewing or digesting their food, seafood can be a good choice to help them obtain their daily protein needs.[]
 
-    html.Div(className='two-column', children=[
-        dcc.Markdown(className="text-box",
-                     children="""
-The growing issue of overfishing has allowed the rapid growth of the aqaculture, or fish farming, 
-industry over the last decades as can be seen in the figures. 
-Fish produced from farming activities currently accounts for over one quarter of all fish directly consumed by humans.
+We can see in the graph that Chinese people intake protein mainly from pork and seafood while Norwegian people prefer milk and seafood, where seafood accounts for around 24% of protein consumption in both countries. Showing us that people in China and Norway has similar seafood protein intake habits.
+However interestingly, since we've already established that Chineese people eat less fish per capita, that also means that at the moment they eat less protein overall. 
 
-Many people believe that aquaculture will replace a large part of wild capture production over the next decades. 
-And that it will be able to reduce pressure on ocean harvests to allow the fish population to recover. 
-However in reality the industry is not as efficient as it seems and the industry will have to change if it ever wants to fulfill this role.
+So we've established that fish is arguably the better protein source with a relatively low amount of GHG emmisions. That still does't adress the fact the current trand of overfishing is unsustainable. One mayor factor in that are the ineffective current fishing practises.
 
-To begin with a large part of the aquaculture production are carnivorous fish species, such as salmon, 
-that require 2 to 5 times more fish protein, in the form of fish meal made from scrap fish products, 
-to feed the farmed species than is supplied by the farmed product. And a lot of this protein originates from wild captured fish, 
-which as you can imagine is counter-productive. 
-Even herbivorous and omnivorous freshwater fish that require minimal quantities of fish meal are fed with about 15% fish meal, 
-exceeding required levels. For the ten types of fish most commonly farmed, 
-an average of 1.9 kg of wild fish is required for every kilogram of fish raised on compound feeds. 
-So it's clear to see that the growing aquaculture industry cannot continue to rely on infinite stocks of wild-caught fish.
+            """),
 
-Currently China produces around two thirds of the global aquaculture production, with the common carp, an omnivorous, as it's biggest product. 
-Whilest Norways most farmed fish is the Atlantic salmon, a carnivour. 
-Should China solve it's inefficient practises it's aquaculture industry should be able to thrive and result in a greater global (net) fish supply.
-
-Unfortunately inefficiency is not the only problem with this industry. Other include that:
-
-* Aquaculture can also diminish wild fisheries indirectly by habitat modification
-* wild caught fish are used to stock aquaculture ponds
-* the creation of fish meal through over-exploitation reduces available food supplies for marine predators
-* the introduction of exotic species, through farm escapees, upsets ecosystems and harms wild fish populations
-* untreated wastewater of fish farms causes nutrient pollution
-* Aquaculture is a lot more at risk from outside threads then the fishing industry. For example, in 2010 aquaculture production in China suffered losses of 1.7 million tonnes (worth US$3.3 thousand million) due to disease outbreaks (295 thousand tonnes), natural disasters (1.2 million tonnes), and pollution (123 thousand tonnes) (FAO 2012).
-        """),
-        dcc.Graph(id='aquaculture-capture-production-plot',
-                  figure=plot_aquaculture_production(df_aqua))
-    ]),
     #######################################################################
     ###                          Fishing types                         ####
     #######################################################################
@@ -472,42 +408,60 @@ Unfortunately inefficiency is not the only problem with this industry. Other inc
         html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
                          children="""
-
-# Fishing methods                         
-
-There are a lot of ways to catch fish around the world. Overall, pole-and-line,
-longline, and gillnet methods are more common in lower-income countries where 
-much of the fishing activity is subsistence or small-scale. Purse seine and 
-trawling methods are more common in industrial fishing practices, these tend 
-to catch more fish per unit of effort.[].
+# Fishing methods
+There are a lot of ways to catch fish around the world. Overall, pole-and-line, longline, and gillnet methods are more common in lower-income countries where much of the fishing activity is subsistence or small-scale. Purse seine and trawling methods are more common in industrial fishing practices, these tend to catch more fish per unit of effort.[].
 
 ## Trawling
-
-Trawling methods have larger negative impacts on ecology compared to purse seine, 
-especially bottom trawls, because bottom trawls are pulled directly above or on
-the seabed. They are very efficient in capturing large number of fish, but give
-the organisms that live there a devastating impact. Furthermore, trawling methods
-generate much more discards than others, one-fifth (21%) of catch from bottom
-trawls is thrown back into the ocean. Fishers will throw unwanted fish back
-into the ocean, including sharks, sea turtles and juvenile fish, but the 
-survival rate of these discarded animals is lower and it will lead to overfishing.
+Trawling methods have larger negative impacts on ecology compared to purse seine, especially bottom trawls, because bottom trawls are pulled directly above or on the seabed. They are very efficient in capturing large number of fish, but give the organisms that live there a devastating impact. Furthermore, trawling methods generate much more discards than others, one-fifth (21%) of catch from bottom trawls is thrown back into the ocean. Fishers will throw unwanted fish back into the ocean, including sharks, sea turtles and juvenile fish, but the survival rate of these discarded animals is lower and it will lead to overfishing.
 
 ## China versus Norway
+Both China and Norway are high seafood production countries, hence pole-and-line, longline, and gillnet methods are not efficient ways to meet their demand. It is clear to see that China and Norway use different fish catching methods, Norwegian people prefer to use purse seine while Chinese prefer trawl methods. It means that China is using a pretty unsustainable way to supply fish and seafood. As we can see, the fish catch number of all types decreased in China from 2015, which may be the consequence of bottom trawling. The seabed damage and unsustainable catch lead to unhealthy fish and fish stocks shortage. In contrast, Norway's fish catch volume is relatively stable and sustainable.
 
-Both China and Norway are high seafood production countries, hence pole-and-line,
-longline, and gillnet methods are not efficient ways to meet their demand.
-It is clear to see that China and Norway use different fish catching methods, 
-Norwegian people prefer to use purse seine while Chinese prefer trawl methods.
-It means that China is using a pretty unsustainable way to supply fish and
-seafood. As we can see, the fish catch number of all types decreased in China 
-from 2015, which may be the consequence of bottom trawling.
-The seabed damage and unsustainable catch lead to unhealthy fish and fish stocks
-shortage. In contrast, Norway's fish catch volume is relatively stable and sustainable.
+Unfortunately China plays a big role in the fishing industry, which we can't do without. And It's safe to say that the methods they use need improvements, however there is one more fishing industry that we haven't discussed yet, aqaculture.
+
         """),
         ]),
 
     ]),
 
+    #######################################################################
+    ###                Aquaculture and capture production              ####
+    #######################################################################
+
+    html.H2('Aquaculture and Capture production',
+            id='aquaculture-capture-production',
+            className='title-medium'),
+
+    html.Div(className='two-column', children=[
+        dcc.Markdown(className="text-box",
+                     children="""
+
+The growing issue of overfishing has allowed the rapid growth of the aqaculture, or fish farming, industry over the last decades as can be seen in the figures. Fish produced from farming activities currently accounts for over one quarter of all fish directly consumed by humans. 
+
+Many people believe that aquaculture will replace a large part of wild capture production over the next decades. And that it will be able to reduce pressure on ocean harvests to allow the fish population to recover. However in reality the industry is not as efficient as it seems and the industry will have to change if it ever wants to fulfill this role. 
+
+To begin with a large part of the aquaculture production are carnivorous fish species, such as salmon, that require 2 to 5
+times more fish protein, in the form of fish meal made from scrap fish products, to feed the farmed species than is supplied by the farmed product. And a lot of this protein originates from wild captured fish, which as you can imagine is counter-productive. Even herbivorous and omnivorous freshwater fish that require minimal quantities of fish meal are fed with about 15% fish meal, exceeding required levels.
+For the ten types of fish most commonly farmed, an average of 1.9 kg of wild fish is required for every kilogram of fish raised on compound feeds.
+So it's clear to see that the growing aquaculture industry cannot continue to rely on infinite stocks of wild-caught fish.
+
+Unfortunately inefficiency is not the only problem with this industry. Other include that:
+- aquaculture can also diminish wild fisheries indirectly by habitat modification
+- wild caught fish are used to stock aquaculture ponds 
+- the creation of fish meal through over-exploitation reduces available food supplies for marine predators 
+- the introduction of exotic species, through farm escapees, upsets ecosystems and harms wild fish populations
+- untreated wastewater of fish farms causes nutrient pollution
+- aquaculture is a lot more at risk from outside threads then the fishing industry. For example, in 2010 aquaculture production in China suffered losses of 1.7 million tonnes (worth US$3.3 thousand million) due to disease outbreaks (295 thousand tonnes), natural disasters (1.2 million tonnes), and pollution (123 thousand tonnes) (FAO 2012).
+
+Currently China produces around two thirds of the global aquaculture production, with the common carp, an omnivorous, as it's biggest product. Whilest Norways most farmed fish is the Atlantic salmon, a carnivour. Should China solve it's inefficient practises it's aquaculture industry should be able to thrive and result in a greater global (net) fish supply.
+
+So far we're only talked about the negatives, so lets shine some light at one mayor benefit that aquaculture has over capture production. 
+
+
+        """),
+        dcc.Graph(id='aquaculture-capture-production-plot',
+                  figure=plot_aquaculture_production(df_aqua))
+    ]),
     #######################################################################
     ###                     Aquaculture emissions                      ####
     #######################################################################
@@ -519,27 +473,14 @@ shortage. In contrast, Norway's fish catch volume is relatively stable and susta
     html.Div(className='two-column', children=[
         dcc.Markdown(className="text-box",
                      children="""
-The food industry is a mayor driver in enviromental change, responsible for a quarter of all greenhouse gasses (GHG). 
-Reducing the GHG emmisions is vital to reaching emission goals and creating a sustainable feature.
 
-Fish and other aquatic foods (blue foods) are an effective way of reaching this sustainable diet. As the graph shows GHG emmisions, 
-as well as other enviromental stressors, of most blue food groups compare favourably to industrial chicken production, 
-which typically has lower stressors then other livestock. However this holds true for both aquacultere captures as well as capture fisheries.
-Although generally farmed fish produce a lower or equal average emission then their captured counterpart.
+We've already established that fish and other aquatic foods (blue foods) are an effective way of reaching a sustainable diet. As the graph shows GHG emmisions, as well as other enviromental stressors, of most blue food groups compare favourably to industrial chicken production, which typically has lower stressors then other livestock as we've seen in a previous figure. However this holds true for both aquacultere captures as well as capture fisheries. Although generally farmed fish produce a lower or equal average emission then their captured counterpart.
 
-Most of the emissions of aquacultere result from growing fish food, whearas in the capture fisheries fuel causes the most emission. 
-For fed systems 87% of N and 94% of P occur on food farms. 
-Which also means that non-fed groups such as seaweeds and bivalve remove more N and P than is emitted during production.
+Most of the emissions of aquacultere result from growing fish food, whearas in the capture fisheries fuel causes the most emission. For fed systems 87% of N and 94% of P occur on food farms. Which also means that non-fed groups such as seaweeds and bivalve remove more N and P than is emitted during production. 
 
-However since aquacuture uses land for both the fish and food farms, this creates a trade-offs with alternate uses, 
-including production of other foods. And since the availability and access to freshwater inceasingly constraints the agriculture industry, 
-this creates a downside to fed-systems where freshwater is largely used in feed production, 
-whearas capture fisheries and unfed systems require little freshwater.
+However since aquacuture uses land for both the fish and food farms, this creates a trade-offs with alternate uses, including production of other foods. And since the availability and access to freshwater inceasingly constraints the agriculture industry, this creates a downside to fed-systems where freshwater is largely used in feed production, whearas capture fisheries and unfed systems require little freshwater.
 
-As it turns out although farmed fish does not appear to have a mayor enviromental benefit, compared to captured fish, 
-at the moment it is also safe to say that the industry has not nearly reached it's full potential. 
-It's still a young and rapid growing sector with many promosing technolgies and policies to improve it's efficiency. 
-Where the main problem to tackle while expanding is making sure new inventions are not beond the reach of the many small producers.
+As it turns out although farmed fish does not appear to have a mayor enviromental benefit, compared to captured fish, at the moment it is also safe to say that the industry has not nearly reached it's full potential. It's still a young and rapid growing sector with many promosing technolgies and policies to improve it's efficiency. Where the main problem to tackle while expanding is making sure new inventions are not beond the reach of the many small producers.
     """),
         dcc.Graph(id='aquaculture-emissions-plot',
                   figure=plot_aquaculture_emissions(df_aqua_emissions))

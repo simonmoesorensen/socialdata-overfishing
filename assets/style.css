@@ -313,6 +313,7 @@ html {
     text-align: center;
     color: var(--text-color-dark);
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .text-box {
@@ -353,7 +354,7 @@ html {
 .button {
     height: 5rem;
     width: 10rem;
-    font-size: 1.3rem!important;
+    font-size: 1.1rem!important;
 }
 
 .countries {
