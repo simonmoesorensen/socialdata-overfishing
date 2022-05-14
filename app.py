@@ -120,10 +120,8 @@ app.layout = html.Div(className='main', children=[
                      ])
 
              ]),
-
     html.Div(
         id='introduction',
-        className='two-column',
         style={'marginTop': '5rem'},
         children=[
             dcc.Tabs(parent_className='fade-left flex-0',
@@ -132,7 +130,7 @@ app.layout = html.Div(className='main', children=[
                                  className='custom-tab fade-up',
                                  selected_className='custom-tab--selected',
                                  children=[
-                                     html.Div(className='two-row', children=[
+                                     html.Div(className='two-column', children=[
                                          dcc.Graph(
                                              id='fish-tab-consumption',
                                              figure=plot_consumption_map(df_consumption)),
@@ -157,7 +155,7 @@ leads to a higher absolute impact on the fishing industry.
                                  className='custom-tab',
                                  selected_className='custom-tab--selected',
                                  children=[
-                                     html.Div(className='two-row', children=[
+                                     html.Div(className='two-column', children=[
                                          dcc.Loading(dcc.Graph(
                                              id='fish-tab-trend',
                                              figure=plot_avg_global_consumption(df_consumption)
@@ -178,7 +176,7 @@ being made possible by the technological advancements over the last decades.
                                  className='custom-tab',
                                  selected_className='custom-tab--selected',
                                  children=[
-                                     html.Div(className='two-row', children=[
+                                     html.Div(className='two-column', children=[
                                          dcc.Loading(dcc.Graph(
                                              id='fish-tab-overfishing',
                                              figure=plot_sustainability(df_sustainability)
@@ -200,11 +198,16 @@ Unfortunately the reality is worse, since we are fishing more and more each year
                                  className='custom-tab',
                                  selected_className='custom-tab--selected',
                                  children=[
-                                     html.Div(className='two-row', children=[
+                                     html.Div(className='two-column', children=[
                                          dcc.Loading(
                                              html.Div(className='industry-container',
                                                       children=[
-                                                          html.Div(className='button-array-column',
+                                                          dcc.Graph(
+                                                              id='fish-tab-industry',
+                                                              figure=plot_sustainability(df_sustainability)),
+                                                          html.Div(className='button-array',
+                                                                   style={'gap': '1rem',
+                                                                          'marginTop': '1rem'},
                                                                    children=[
                                                                        sd.Button('Production',
                                                                                  className='button',
@@ -242,16 +245,10 @@ Unfortunately the reality is worse, since we are fishing more and more each year
                                                                                      'background-color': 'rebeccapurple',
                                                                                      'color': 'var(--text-color-dark)'
                                                                                  }),
-                                                                   ]),
-                                                          dcc.Graph(
-                                                              id='fish-tab-industry',
-                                                              figure=plot_sustainability(df_sustainability))
+                                                                   ])
                                                       ])),
-                                         html.Div([
-                                             html.Div(className='two-row',
-                                                      children=[
-                                                          dcc.Markdown(className='text-box',
-                                                                       children="""
+                                         dcc.Markdown(className='text-box',
+                                                      children="""
 # Industry 
 
 When we start to look for which countries are most responsible for creating this issue, the answer is all of them. 
@@ -275,15 +272,16 @@ to see which fishes more responsably and what rural political and economical cli
 The countries we will be looking at are Norway and China. Since these are the countries with the biggest supply that's 
 self produced, which also have significant cultural and geographical differences.
                                                                        """)
-                                                      ])
 
-                                         ])
                                      ])
                                  ]),
                      ]),
-            html.Div(className='two-row fade-right',
-                     children=[
-                         dcc.Markdown(className="text-box", children="""
+        ]),
+
+    html.Div(className='two-row fade-right',
+             style={'marginTop': '1rem'},
+             children=[
+                 dcc.Markdown(className="text-box", children="""
 # Introduction
 Fishing has been the most important industry for human beings since ancient times, including marine fisheries, freshwater fisheries, 
 capture fisheries and aquaculture fisheries. Seafood is also one of the most common foods, such as fish and shrimp. 
@@ -306,24 +304,14 @@ Norway's overexploited fishing rate is much lower than China. Therefore, we want
 comparing these two countries and find out where China's unsustainable fishing activities are. More interestingly, 
 we found the advantage of seafood as a protein intake, and in order to maximize this advantage, sustainable fishing activities become more important.
                                  """),
-                         # html.Div(className='countries fade-up',
-                         #          children=[
-                         #              html.A(html.Button(className='country-button china'),
-                         #                     href='#china'),
-                         #              html.A(html.Button('', className='country-button norway'),
-                         #                     href='#norway')
-                         #          ])
-                     ]),
-        ]),
-
+             ]),
     #######################################################################
     ###                      GDP and Consumption                       ####
     #######################################################################
 
     html.H2('GDP and Consumption',
             id='gdp-consumption',
-            className='title-medium',
-            style={'marginTop': '16rem'}),
+            className='title-medium'),
 
     html.Div(className='two-column', children=[
         dcc.Markdown(className="text-box",
@@ -365,8 +353,7 @@ to farmed fish, often restricting their accessibility to wealthier consumers*" (
 
     html.H2('Protein intake',
             id='protein-intake',
-            className='title-medium',
-            style={'marginTop': '8rem'}),
+            className='title-medium'),
 
     dcc.Graph(id='protein-intake-plot',
               className='graph-wide',
@@ -429,8 +416,7 @@ which is a good way to get enough nutrition in a sustainable way.
 
     html.H2('Aquaculture and Capture production',
             id='aquaculture-capture-production',
-            className='title-medium',
-            style={'marginTop': '8rem'}),
+            className='title-medium'),
 
     html.Div(className='two-column', children=[
         dcc.Markdown(className="text-box",
@@ -474,8 +460,7 @@ Unfortunately inefficiency is not the only problem with this industry. Other inc
 
     html.H2('Fishing Types',
             id='fishing-types',
-            className='title-medium',
-            style={'marginTop': '8rem'}),
+            className='title-medium'),
 
     html.Div(className='two-column', children=[
         html.Div(className='two-row', children=[
@@ -529,8 +514,7 @@ shortage. In contrast, Norway's fish catch volume is relatively stable and susta
 
     html.H2('Aquaculture Emissions',
             id='aquaculture-emissions',
-            className='title-medium',
-            style={'marginTop': '8rem'}),
+            className='title-medium'),
 
     html.Div(className='two-column', children=[
         dcc.Markdown(className="text-box",
@@ -563,16 +547,12 @@ Where the main problem to tackle while expanding is making sure new inventions a
 
     html.H2('Conclusion',
             className='title-medium',
-            id='conclusion',
-            style={'marginTop': '8rem'}
-            ),
+            id='conclusion'),
 
     html.H2('References',
             className='title-medium',
             id='references',
-            style={'marginBottom': 0,
-                   'marginTop': '8rem'},
-            ),
+            style={'marginBottom': 0}),
 
     html.Ol([
         html.Li([
