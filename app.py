@@ -374,10 +374,10 @@ growth?
                            figure=plot_protein_ghg(df_ghg)),
                  dcc.Markdown(className='text-box',
                               children="""
-## Greenhouse Gas Emission 
+## Greenhouse Gas Emissions
 
 Human behaviours are causing several global 
-environmental disruptions. Greenhouse gas emission is one of the most important 
+environmental disruptions. Greenhouse gas emissions are one of the most important 
 environmental problems, causing global temperatures to rise. With people becoming 
 increasingly aware of the need for environmental protection. More and more people want 
 to reduce the carbon footprint of their food, hence they prefer to eat foods that have 
