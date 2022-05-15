@@ -440,12 +440,6 @@ the ineffective current fishing practices.
 
     html.Div(className='two-column', children=[
         html.Div(className='two-row', children=[
-            dcc.Graph(id='china-fishing-types',
-                      figure=plot_fishing_type(df_fish_types, 'China')),
-            dcc.Graph(id='norway-fishing-types',
-                      figure=plot_fishing_type(df_fish_types, 'Norway')),
-        ]),
-        html.Div(className='two-row', children=[
             dcc.Markdown(className="text-box",
                          children="""
 # Fishing methods 
@@ -481,6 +475,12 @@ aquaculture.
         
         """),
         ]),
+        html.Div(className='two-row', children=[
+            dcc.Graph(id='china-fishing-types',
+                      figure=plot_fishing_type(df_fish_types, 'China')),
+            dcc.Graph(id='norway-fishing-types',
+                      figure=plot_fishing_type(df_fish_types, 'Norway')),
+        ]),
 
     ]),
 
@@ -493,6 +493,8 @@ aquaculture.
             className='title-medium'),
 
     html.Div(className='two-column', children=[
+        dcc.Graph(id='aquaculture-capture-production-plot',
+                  figure=plot_aquaculture_production(df_aqua)),
         dcc.Markdown(className="text-box",
                      children="""
 
@@ -536,9 +538,7 @@ So far we're only talked about the negatives, so let's shine some light on one m
 over capture production. 
 
 
-        """),
-        dcc.Graph(id='aquaculture-capture-production-plot',
-                  figure=plot_aquaculture_production(df_aqua))
+        """)
     ]),
     #######################################################################
     ###                     Aquaculture emissions                      ####
