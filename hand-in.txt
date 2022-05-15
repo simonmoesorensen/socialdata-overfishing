@@ -1,0 +1,7 @@
+NOTES: The first time you access the website, it will have to start up the backend server. Please wait 2-3 minutes.
+If nothing works, reload the page.
+
+LINKS:
+
+Website: https://fishing-sustainability.herokuapp.com/
+Github: https://github.com/simonmoesorensen/socialdata-overfishing
